@@ -1,0 +1,29 @@
+﻿<Properties StartupConfiguration="{1C5E62AE-8352-421F-BE9C-5EF07F41E0EE}|Default">
+  <MonoDevelop.Ide.ItemProperties.DBTest3 PreferredExecutionTarget="/Applications/Safari.app" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="DBTest3/Program.cs">
+    <Files>
+      <File FileName="DBTest3/appsettings.json" Line="3" Column="227" />
+      <File FileName="DBTest3/Program.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="DBTest3" expanded="True">
+            <Node name="DBTest3" expanded="True">
+              <Node name="Program.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+</Properties>
