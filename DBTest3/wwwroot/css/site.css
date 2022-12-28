@@ -63,17 +63,12 @@ a, .btn-link {
         content: "An error has occurred."
     }
 
-
-body {
-    background-color: #eee;
-}
-
 .main {
-    display: flex;
-    justify-content: center;
-    height: 100vh;
-    align-items: center;
-/*    background-color: #f6f6f6;*/
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    background-color: #2196F3;
+    padding: 10px;
+    /*    background-color: #f6f6f6;*/
 }
 
 .one {
@@ -211,4 +206,17 @@ body {
     text-align: center;
     position: relative;
     top: 2px;
+}
+
+
+@media (max-width: 1300px) {
+    .main {
+        grid-template-columns: auto auto;
+    }
+}
+
+@media (max-width: 650px) {
+    .main {
+        grid-template-columns: auto;
+    }
 }
