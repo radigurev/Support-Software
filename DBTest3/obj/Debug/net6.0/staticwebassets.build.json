@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "hsVSZWP1Jgv/ZLglS/dJ/4al4eTuPlbGeKUfRJ4TayE=",
+  "Hash": "RcSCoyV7Xyjr2QapwTLq2LcsNBBGG5/aS/va6ydCuLg=",
   "Source": "DBTest3",
   "BasePath": "_content/DBTest3",
   "Mode": "Default",
@@ -1103,6 +1103,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Identity": "C:\\Users\\radig\\OneDrive\\Documents\\Sites\\Support-Software\\DBTest3\\wwwroot\\css\\menu.css",
+      "SourceId": "DBTest3",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\radig\\OneDrive\\Documents\\Sites\\Support-Software\\DBTest3\\wwwroot\\",
+      "BasePath": "_content/DBTest3",
+      "RelativePath": "css/menu.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\menu.css"
     },
     {
       "Identity": "C:\\Users\\radig\\OneDrive\\Documents\\Sites\\Support-Software\\DBTest3\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",

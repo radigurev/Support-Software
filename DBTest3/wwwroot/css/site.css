@@ -1,7 +1,7 @@
 @import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
 html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: sans-serif,'Helvetica Neue', Helvetica, Arial;
 }
 
 h1:focus {
@@ -208,6 +208,14 @@ a, .btn-link {
     top: 2px;
 }
 
+.section-text {
+    text-transform: uppercase;
+    border-color: black;
+    border: 4px solid;
+    border-radius: 15px;
+    padding-left: 10px;
+    margin: 10px 0;
+}
 
 @media (max-width: 1300px) {
     .main {
