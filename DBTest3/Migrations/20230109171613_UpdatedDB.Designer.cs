@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace DBTest3.Data.Migrations
+namespace DBTest3.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221212092702_DbInitializationWithSeed")]
-    partial class DbInitializationWithSeed
+    [Migration("20230109171613_UpdatedDB")]
+    partial class UpdatedDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,6 +23,23 @@ namespace DBTest3.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+
+            modelBuilder.Entity("DBTest3.Data.Entity.Companies", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
+
+                    b.Property<string>("name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("companies");
+                });
 
             modelBuilder.Entity("DBTest3.Data.Entity.Location", b =>
                 {
@@ -40,6 +57,32 @@ namespace DBTest3.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("locations");
+                });
+
+            modelBuilder.Entity("DBTest3.Data.Entity.Projects", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
+
+                    b.Property<long?>("IdCompany")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdCompany");
+
+                    b.ToTable("projects");
                 });
 
             modelBuilder.Entity("DBTest3.Data.Entity.Role", b =>
@@ -73,6 +116,67 @@ namespace DBTest3.Data.Migrations
                     b.ToTable("AspNetRoles", (string)null);
                 });
 
+            modelBuilder.Entity("DBTest3.Data.Entity.Tickets", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
+
+                    b.Property<string>("ClientId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime?>("ClosedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Problem")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("StatusId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("WorkerId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClientId");
+
+                    b.HasIndex("StatusId");
+
+                    b.HasIndex("WorkerId");
+
+                    b.ToTable("tickets");
+                });
+
+            modelBuilder.Entity("DBTest3.Data.Entity.TicketStatus", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ticketStatuses");
+                });
+
             modelBuilder.Entity("DBTest3.Data.Entity.User", b =>
                 {
                     b.Property<string>("Id")
@@ -80,6 +184,9 @@ namespace DBTest3.Data.Migrations
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
+
+                    b.Property<long>("CompanyId")
+                        .HasColumnType("bigint");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
@@ -132,6 +239,8 @@ namespace DBTest3.Data.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CompanyId");
 
                     b.HasIndex("IdLocation");
 
@@ -256,11 +365,55 @@ namespace DBTest3.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("DBTest3.Data.Entity.Projects", b =>
+                {
+                    b.HasOne("DBTest3.Data.Entity.Companies", "Company")
+                        .WithMany("Projects")
+                        .HasForeignKey("IdCompany");
+
+                    b.Navigation("Company");
+                });
+
+            modelBuilder.Entity("DBTest3.Data.Entity.Tickets", b =>
+                {
+                    b.HasOne("DBTest3.Data.Entity.User", "Client")
+                        .WithMany()
+                        .HasForeignKey("ClientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DBTest3.Data.Entity.TicketStatus", "Status")
+                        .WithMany()
+                        .HasForeignKey("StatusId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DBTest3.Data.Entity.User", "Worker")
+                        .WithMany("Tickets")
+                        .HasForeignKey("WorkerId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Client");
+
+                    b.Navigation("Status");
+
+                    b.Navigation("Worker");
+                });
+
             modelBuilder.Entity("DBTest3.Data.Entity.User", b =>
                 {
+                    b.HasOne("DBTest3.Data.Entity.Companies", "Company")
+                        .WithMany()
+                        .HasForeignKey("CompanyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("DBTest3.Data.Entity.Location", "Location")
                         .WithMany()
                         .HasForeignKey("IdLocation");
+
+                    b.Navigation("Company");
 
                     b.Navigation("Location");
                 });
@@ -314,6 +467,16 @@ namespace DBTest3.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("DBTest3.Data.Entity.Companies", b =>
+                {
+                    b.Navigation("Projects");
+                });
+
+            modelBuilder.Entity("DBTest3.Data.Entity.User", b =>
+                {
+                    b.Navigation("Tickets");
                 });
 #pragma warning restore 612, 618
         }

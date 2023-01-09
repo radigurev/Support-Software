@@ -15,9 +15,9 @@ namespace DBTest3.Service
 
         public async Task initRoles()
         {
-            if(!roleManager.Roles.Any())
+            if (!roleManager.Roles.Any())
             {
-               List<Role> roles = new List<Role>()
+                List<Role> roles = new List<Role>()
                {
                  new Role()
                 {
@@ -37,12 +37,12 @@ namespace DBTest3.Service
             };
                 try
                 {
-                   foreach(var role in roles)
+                    foreach (var role in roles)
                     {
                         await roleManager.CreateAsync(role);
                     }
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
 
                 }

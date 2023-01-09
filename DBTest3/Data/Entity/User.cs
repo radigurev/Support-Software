@@ -15,6 +15,8 @@ namespace DBTest3.Data.Entity
 
         [ForeignKey(nameof(Company))]
         public long? CompanyId { get; set; }
-        public Companies Company { get; set; }
+        public Companies? Company { get; set; }
+
+        public ICollection<Tickets> Tickets { get; set; }
     }
 }

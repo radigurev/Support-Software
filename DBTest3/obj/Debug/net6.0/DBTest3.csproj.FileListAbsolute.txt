@@ -825,3 +825,4 @@ C:\Users\radig\OneDrive\Documents\Sites\Support-Software\DBTest3\obj\Debug\net6.
 C:\Users\radig\OneDrive\Documents\Sites\Support-Software\DBTest3\obj\Debug\net6.0\DBTest3.pdb
 C:\Users\radig\OneDrive\Documents\Sites\Support-Software\DBTest3\obj\Debug\net6.0\DBTest3.genruntimeconfig.cache
 C:\Users\radig\OneDrive\Documents\Sites\Support-Software\DBTest3\obj\Debug\net6.0\ref\DBTest3.dll
+C:\Users\radig\OneDrive\Documents\Sites\Support-Software\DBTest3\bin\Debug\net6.0\AutoMapper.dll

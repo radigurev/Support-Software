@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Components;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -17,9 +18,9 @@ namespace DBTest3.Data.Entity
 
 		public string Type { get; set; }
 
-        [ForeignKey(nameof(Project))]
-        public long ProjectId { get; set; }
-		public Projects Project { get; set; }
+        [ForeignKey(nameof(Company))]
+        public long? IdCompany { get; set; }
+        public Companies Company { get; set; }
     }
 }
 

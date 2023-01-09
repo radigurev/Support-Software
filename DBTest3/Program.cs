@@ -1,6 +1,8 @@
+using AutoMapper;
 using DBTest3.Areas.Identity;
 using DBTest3.Data;
 using DBTest3.Data.Entity;
+using DBTest3.Data.ViewModels;
 using DBTest3.Service;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -35,7 +37,7 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddTransient<IApplicationRoleService, ApplicationRoleService>();
 builder.Services.AddTransient<IApplicationUserService, ApplicationUserService>();
 builder.Services.AddTransient<ILocationService, LocationService>();
-
+builder.Services.AddTransient<ITicketService, TicketService>();
 
 builder.Services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<User>>();
 
@@ -45,11 +47,13 @@ using (var scope = app.Services.CreateScope())
 {
     var roles = scope.ServiceProvider.GetService<IApplicationRoleService>();
     var user = scope.ServiceProvider.GetService<IApplicationUserService>();
+    var ticket = scope.ServiceProvider.GetService<ITicketService>();
 
     await roles.initRoles();
 
     await user.createUserAdmin();
 
+    await ticket.initTicketStatuses();
 }
 
 
