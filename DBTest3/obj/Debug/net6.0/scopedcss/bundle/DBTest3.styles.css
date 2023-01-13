@@ -9,7 +9,9 @@ main[b-tlod2ujpyv] {
     flex: 1;
 }
 
-
+.sidebar[b-tlod2ujpyv] {
+    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+}
 
 .top-row[b-tlod2ujpyv] {
     background-color: #f7f7f7;

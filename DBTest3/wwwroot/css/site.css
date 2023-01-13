@@ -119,9 +119,6 @@ a, .btn-link {
     color: #fff;
 }
 
-
-
-
 .two {
     width: 270px;
     background-color: #fff;
@@ -137,7 +134,7 @@ a, .btn-link {
     color: #b1b4b7;
 }
 
-.dot {
+.dot { 
     font-size: 20px !important;
     color: #b1b4b7;
 }
