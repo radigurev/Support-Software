@@ -1,5 +1,6 @@
 using AutoMapper;
 using DBTest3.Areas.Identity;
+using DBTest3.Config;
 using DBTest3.Data;
 using DBTest3.Data.Entity;
 using DBTest3.Data.ViewModels;
@@ -11,6 +12,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Radzen;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -36,18 +38,30 @@ builder.Services.AddServerSideBlazor();
 
 builder.Services.AddTransient<IApplicationRoleService, ApplicationRoleService>();
 builder.Services.AddTransient<IApplicationUserService, ApplicationUserService>();
-builder.Services.AddTransient<ILocationService, LocationService>();
 builder.Services.AddTransient<ITicketService, TicketService>();
+builder.Services.AddTransient<ICompanyService, CompanyService>();
+
+
+builder.Services.AddScoped<DialogService>();
+builder.Services.AddScoped<NotificationService>();
+builder.Services.AddScoped<TooltipService>();
+builder.Services.AddScoped<ContextMenuService>();
 
 builder.Services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<User>>();
 
 var app = builder.Build();
+
+Config.RegisterMappings(typeof(ErrorViewModel).GetType().Assembly);
 
 using (var scope = app.Services.CreateScope())
 {
     var roles = scope.ServiceProvider.GetService<IApplicationRoleService>();
     var user = scope.ServiceProvider.GetService<IApplicationUserService>();
     var ticket = scope.ServiceProvider.GetService<ITicketService>();
+    var company = scope.ServiceProvider.GetService<ICompanyService>();
+
+    if(!company.hasAny())
+    await company.CrateCompany("Admin");
 
     await roles.initRoles();
 
@@ -55,7 +69,6 @@ using (var scope = app.Services.CreateScope())
 
     await ticket.initTicketStatuses();
 }
-
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

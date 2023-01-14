@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using DBTest3.Config;
 using DBTest3.Data;
 using DBTest3.Data.Entity;
 using DBTest3.Data.ViewModels;
@@ -19,22 +20,9 @@ namespace DBTest3.Service
         public List<TicketsVM> getToDoTickets(TicketStatusVM status)
         {
             //Взимане на лист с даден статус
-            var ticketList = applicationDbContext.tickets.Where(x => x.StatusId == status.Id).ToList();
+            var ticketList = applicationDbContext.tickets.Where(x => x.StatusId == status.Id).To<TicketsVM>().ToList();
 
-            return ticketList.Select(x => new TicketsVM
-            {
-                Client = x.Client,
-                ClientId = x.ClientId,
-                Id = x.Id,
-                ClosedDate = x.ClosedDate,
-                CreatedDate = x.CreatedDate,
-                Problem = x.Problem,
-                Status = x.Status,
-                StatusId = x.StatusId,
-                Title = x.Title,
-                Worker = x.Worker,
-                WorkerId = x.WorkerId
-            }).ToList();
+            return ticketList;
         }
         #endregion
 
@@ -45,13 +33,7 @@ namespace DBTest3.Service
 
             var ticket = applicationDbContext.ticketStatuses.Where(x => x.Code == statusCode).First();
 
-            return new TicketStatusVM()
-            {
-             Code = ticket.Code,
-             Name = ticket.Name,
-             NameBG = ticket.NameBG,
-             Id = ticket.Id
-            };
+            return ticket.To<TicketStatusVM>();
         }
 
         public async Task initTicketStatuses()

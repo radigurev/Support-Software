@@ -7,11 +7,10 @@ namespace DBTest3.Data.Entity
     {
         public string? EGN { get; set; }
 
-        private bool IsClient { get; set; }
+        public bool IsClient { get; set; }
 
-        [ForeignKey(nameof(Location))]
-        public int? IdLocation { get; set; }
-        public Location Location { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }  
 
         [ForeignKey(nameof(Company))]
         public long? CompanyId { get; set; }

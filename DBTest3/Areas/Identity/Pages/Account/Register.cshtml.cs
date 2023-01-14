@@ -111,8 +111,7 @@ namespace DBTest3.Areas.Identity.Pages.Account
 
         public async Task OnGetAsync(string returnUrl = null)
         {
-            ReturnUrl = returnUrl;
-            ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+            Response.Redirect("/");
         }
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)

@@ -23,15 +23,11 @@ namespace DBTest3.Areas.Identity.Pages.Account
     {
         private readonly SignInManager<User> _signInManager;
         private readonly ILogger<LoginModel> _logger;
-        private readonly NavigationManager navManager;
 
-        public LoginModel(SignInManager<User> signInManager, ILogger<LoginModel> logger, NavigationManager navManager)
+        public LoginModel(SignInManager<User> signInManager, ILogger<LoginModel> logger)
         {
             _signInManager = signInManager;
             _logger = logger;
-            this.navManager = navManager;
-
-           
         }
 
 
@@ -94,12 +90,18 @@ namespace DBTest3.Areas.Identity.Pages.Account
 
         public async Task OnGetAsync(string returnUrl = null)
         {
+
+            if (User.Identity.IsAuthenticated)
+                Response.Redirect("/MainPage");
+            else
+                returnUrl ??= Url.Content("~/");
+
+
             if (!string.IsNullOrEmpty(ErrorMessage))
             {
                 ModelState.AddModelError(string.Empty, ErrorMessage);
             }
 
-            returnUrl ??= Url.Content("~/");
 
             // Clear the existing external cookie to ensure a clean login process
             await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
@@ -111,7 +113,7 @@ namespace DBTest3.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
-            returnUrl ??= Url.Content("/tickets");
+            returnUrl ??= Url.Content("/MainPage");
 
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
 

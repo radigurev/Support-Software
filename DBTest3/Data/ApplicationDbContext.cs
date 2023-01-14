@@ -26,7 +26,6 @@ namespace DBTest3.Data
 
         public DbSet<User> users { get; set; }
         public DbSet<Role> roles { get; set; }
-        public DbSet<Location> locations { get; set; }
         public DbSet<Companies> companies { get; set; }
         public DbSet<Projects> projects { get; set; }
         public DbSet<Tickets> tickets { get; set; }

@@ -1,0 +1,13 @@
+﻿@page "/Users"
+@using DBTest3.Data.ViewModels
+ 
+<RadzenDataGrid AllowFiltering="true" @ref="grid" Data="users" TItem="UserVM" AllowAlternatingRows="false"
+FilterMode="FilterMode.Advanced" AllowSorting="true" PageSize="15" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Left">
+    <Columns>
+        <RadzenDataGridColumn TItem="UserVM" Property="Id" Filterable="false" Title="ID" Frozen="true" TextAlign="TextAlign.Center" />
+        <RadzenDataGridColumn TItem="UserVM" Property="UserName" Title="UserName" Frozen="true"  />
+        <RadzenDataGridColumn TItem="UserVM" Property="FirstName" Title="First Name" Frozen="true" />
+        <RadzenDataGridColumn TItem="UserVM" Property="LastName" Title="Last Name" Frozen="true" />
+        <RadzenDataGridColumn TItem="UserVM" Property="Company.Name" Title="UserName" Frozen="true"  />
+    </Columns>
+</RadzenDataGrid>

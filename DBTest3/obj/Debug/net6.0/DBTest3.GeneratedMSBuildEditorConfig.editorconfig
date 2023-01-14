@@ -19,20 +19,12 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/radig/OneDrive/Documents/Sites/Support-Software/DBTest3/Pages/Counter.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
+[C:/Users/radig/OneDrive/Documents/Sites/Support-Software/DBTest3/Pages/Custom/MainPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tXE1haW5QYWdlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/radig/OneDrive/Documents/Sites/Support-Software/DBTest3/Pages/FetchData.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmV0Y2hEYXRhLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/radig/OneDrive/Documents/Sites/Support-Software/DBTest3/Pages/Index.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/radig/OneDrive/Documents/Sites/Support-Software/DBTest3/Pages/MainPage.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFpblBhZ2UucmF6b3I=
+[C:/Users/radig/OneDrive/Documents/Sites/Support-Software/DBTest3/Pages/Custom/Users.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tXFVzZXJzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/radig/OneDrive/Documents/Sites/Support-Software/DBTest3/Shared/LoginDisplay.razor]
