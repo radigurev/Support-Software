@@ -1,0 +1,33 @@
+﻿@page "/UserProfile"
+
+<EditForm Model="CurrentUser">
+    <div class="d-flex justify-content-center flex-nowrap">
+        <div class="row">
+            <div class="col-4 mt-2">
+                <label>Име:</label>
+                <InputText @bind-Value="CurrentUser.FirstName" class="form-control" />
+            </div>
+            <div class="col-4 mt-2">
+                <label>Фамилия:</label>
+                <InputText @bind-Value="CurrentUser.PhoneNumber" class="form-control" />
+            </div>
+            <div class="col-4 mt-2">
+                <label>Номер:</label>
+                <InputText @bind-Value="CurrentUser.LastName" class="form-control" />
+            </div>
+            <div class="col-4 mt-2">
+                <label>Фирма:</label>
+                <InputText @bind-Value="CurrentUser.Company.name" class="form-control" />
+            </div>
+            <div class="col-4 mt-2">
+                <label>Email:</label>
+                <InputText @bind-Value="CurrentUser.Email" class="form-control" />
+            </div>
+            <div class="col-4 mt-2">
+                <label>ЕГН:</label>
+                <InputText @bind-Value="CurrentUser.EGN" class="form-control" />
+            </div>
+        </div>
+       
+    </div>
+</EditForm>

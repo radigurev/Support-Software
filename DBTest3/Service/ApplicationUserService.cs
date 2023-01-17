@@ -43,5 +43,19 @@ namespace DBTest3.Service
         {
             return await userManager.Users.Include(x => x.Company).To<UserVM>().ToListAsync();
         }
+
+        public async Task<UserVM> getUserByEmail(string email)
+        {
+            var user = userManager.Users.Where(x => x.Email == email).Include(x => x.Company).First();
+            return user.To<UserVM>();
+        }
+
+        public async Task<UserVM> getUserById(string id)
+        {
+
+            var user = await userManager.FindByIdAsync(id);
+
+            return (await userManager.FindByIdAsync(id)).To<UserVM>();
+        }
     }
 }

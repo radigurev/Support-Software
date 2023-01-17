@@ -6,5 +6,7 @@ namespace DBTest3.Service
     {
         Task createUserAdmin();
         Task<List<UserVM>> getAllUsers();
+        Task<UserVM> getUserByEmail(string name);
+        Task<UserVM> getUserById(string id);
     }
 }

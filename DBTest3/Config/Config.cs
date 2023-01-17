@@ -27,7 +27,7 @@ namespace DBTest3.Config
             {
 
                 configuration.CreateMap<User, UserVM>()
-                .ForMember(dest => dest.Company, options => options.ExplicitExpansion())
+                //.ForMember(dest => dest.Company, options => options.ExplicitExpansion())
                 .ReverseMap();
 
                 configuration.CreateMap<TicketStatus, TicketStatusVM>().ReverseMap();

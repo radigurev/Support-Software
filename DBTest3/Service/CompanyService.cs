@@ -19,7 +19,7 @@ namespace DBTest3.Service
         {
             var company = new CompanyVM()
             {
-                name = name
+                name = name,
             };
 
             applicationDbContext.companies.Add(company.To<Companies>());
