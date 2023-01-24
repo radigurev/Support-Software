@@ -28,6 +28,11 @@ namespace DBTest3.Service
             return Task.CompletedTask;
         }
 
+        public List<CompanyVM> getAllCompanies()
+        {
+            return applicationDbContext.companies.To<CompanyVM>().ToList();
+        }
+
         public bool hasAny()
         {
            return applicationDbContext.companies.Any();

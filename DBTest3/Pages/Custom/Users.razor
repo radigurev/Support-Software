@@ -1,13 +1,23 @@
 ﻿@page "/Users"
 @using DBTest3.Data.ViewModels
- 
+<div class="row">
+    <div class="col-sm-2">
+        <a href="/UserProfile/New" class="btnp">Нов потребител</a>
+    </div>
+</div>
+<br />
 <RadzenDataGrid AllowFiltering="true" @ref="grid" Data="users" TItem="UserVM" AllowAlternatingRows="false"
 FilterMode="FilterMode.Advanced" AllowSorting="true" PageSize="15" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Left">
     <Columns>
-        <RadzenDataGridColumn TItem="UserVM" Property="Id" Filterable="false" Title="ID" Frozen="true" TextAlign="TextAlign.Center" />
-        <RadzenDataGridColumn TItem="UserVM" Property="UserName" Title="UserName" Frozen="true"  />
-        <RadzenDataGridColumn TItem="UserVM" Property="FirstName" Title="First Name" Frozen="true" />
-        <RadzenDataGridColumn TItem="UserVM" Property="LastName" Title="Last Name" Frozen="true" />
-        <RadzenDataGridColumn TItem="UserVM" Property="Company.Name" Title="UserName" Frozen="true"  />
+        <RadzenDataGridColumn TItem="UserVM" Title="№" Frozen="true">
+            <Template Context="user">
+                <RadzenLabel Text="@((users.IndexOf(user) + 1).ToString())"/>
+            </Template>
+        </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="UserVM" Property="Id" Filterable="false" Visible="false" Title="ID" Frozen="true" TextAlign="TextAlign.Center" />
+            <RadzenDataGridColumn TItem="UserVM" Property="UserName" Title="UserName" Frozen="true" />
+            <RadzenDataGridColumn TItem="UserVM" Property="FirstName" Title="First Name" Frozen="true" />
+            <RadzenDataGridColumn TItem="UserVM" Property="LastName" Title="Last Name" Frozen="true" />
+            <RadzenDataGridColumn TItem="UserVM" Property="Company.name" Title="UserName" Frozen="true" />
     </Columns>
 </RadzenDataGrid>

@@ -21,6 +21,7 @@ namespace DBTest3.Pages.Custom
              ProgressTickets = ticketService.getToDoTickets(ticketService.getTicketStatus("InProgressStatus"));
              WaitingTickets = ticketService.getToDoTickets(ticketService.getTicketStatus("WaitingAnswerStatus"));
              ClosedTickets = ticketService.getToDoTickets(ticketService.getTicketStatus("ClosedStatus"));
+
         }
     }
 }

@@ -5,112 +5,113 @@ build_property.UsingMicrosoftNETSdkWeb = true
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
 build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = DBTest3
 build_property.RootNamespace = DBTest3
-build_property.ProjectDir = C:\Users\radig\OneDrive\Documents\Sites\Support-Software\DBTest3\
+build_property.ProjectDir = /Users/rado/Documents/School/Support-Software/DBTest3/
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\radig\OneDrive\Documents\Sites\Support-Software\DBTest3
+build_property.MSBuildProjectDirectory = /Users/rado/Documents/School/Support-Software/DBTest3
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/radig/OneDrive/Documents/Sites/Support-Software/DBTest3/App.razor]
+[/Users/rado/Documents/School/Support-Software/DBTest3/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/radig/OneDrive/Documents/Sites/Support-Software/DBTest3/Pages/Custom/MainPage.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tXE1haW5QYWdlLnJhem9y
+[/Users/rado/Documents/School/Support-Software/DBTest3/Pages/Custom/MainPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ3VzdG9tL01haW5QYWdlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/radig/OneDrive/Documents/Sites/Support-Software/DBTest3/Pages/Custom/UserProfile.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tXFVzZXJQcm9maWxlLnJhem9y
+[/Users/rado/Documents/School/Support-Software/DBTest3/Pages/Custom/UserProfile.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ3VzdG9tL1VzZXJQcm9maWxlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/radig/OneDrive/Documents/Sites/Support-Software/DBTest3/Pages/Custom/Users.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tXFVzZXJzLnJhem9y
+[/Users/rado/Documents/School/Support-Software/DBTest3/Pages/Custom/Users.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ3VzdG9tL1VzZXJzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/radig/OneDrive/Documents/Sites/Support-Software/DBTest3/Shared/LoginDisplay.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXExvZ2luRGlzcGxheS5yYXpvcg==
+[/Users/rado/Documents/School/Support-Software/DBTest3/Shared/LoginDisplay.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0xvZ2luRGlzcGxheS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/radig/OneDrive/Documents/Sites/Support-Software/DBTest3/Shared/SurveyPrompt.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
+[/Users/rado/Documents/School/Support-Software/DBTest3/Shared/SurveyPrompt.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL1N1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/radig/OneDrive/Documents/Sites/Support-Software/DBTest3/Shared/UnAuthorizedUser.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFVuQXV0aG9yaXplZFVzZXIucmF6b3I=
+[/Users/rado/Documents/School/Support-Software/DBTest3/Shared/UnAuthorizedUser.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL1VuQXV0aG9yaXplZFVzZXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/radig/OneDrive/Documents/Sites/Support-Software/DBTest3/_Imports.razor]
+[/Users/rado/Documents/School/Support-Software/DBTest3/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/radig/OneDrive/Documents/Sites/Support-Software/DBTest3/Shared/MainLayout.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-tlod2ujpyv
+[/Users/rado/Documents/School/Support-Software/DBTest3/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL01haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-5wxaiwjdra
 
-[C:/Users/radig/OneDrive/Documents/Sites/Support-Software/DBTest3/Shared/NavMenu.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-wm5ef74969
+[/Users/rado/Documents/School/Support-Software/DBTest3/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL05hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-5gizzd9bn5
 
-[C:/Users/radig/OneDrive/Documents/Sites/Support-Software/DBTest3/Areas/Identity/Pages/Account/Login.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+[/Users/rado/Documents/School/Support-Software/DBTest3/Areas/Identity/Pages/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9Mb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/radig/OneDrive/Documents/Sites/Support-Software/DBTest3/Areas/Identity/Pages/Account/LogOut.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dPdXQuY3NodG1s
+[/Users/rado/Documents/School/Support-Software/DBTest3/Areas/Identity/Pages/Account/LogOut.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9Mb2dPdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/radig/OneDrive/Documents/Sites/Support-Software/DBTest3/Areas/Identity/Pages/Account/Register.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+[/Users/rado/Documents/School/Support-Software/DBTest3/Areas/Identity/Pages/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9SZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/radig/OneDrive/Documents/Sites/Support-Software/DBTest3/Areas/Identity/Pages/Account/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
+[/Users/rado/Documents/School/Support-Software/DBTest3/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9fVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/radig/OneDrive/Documents/Sites/Support-Software/DBTest3/Areas/Identity/Pages/Shared/_LoginPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
+[/Users/rado/Documents/School/Support-Software/DBTest3/Areas/Identity/Pages/Shared/_LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvU2hhcmVkL19Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/radig/OneDrive/Documents/Sites/Support-Software/DBTest3/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
+[/Users/rado/Documents/School/Support-Software/DBTest3/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/radig/OneDrive/Documents/Sites/Support-Software/DBTest3/Areas/Identity/Pages/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[/Users/rado/Documents/School/Support-Software/DBTest3/Areas/Identity/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/radig/OneDrive/Documents/Sites/Support-Software/DBTest3/Areas/Identity/Pages/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+[/Users/rado/Documents/School/Support-Software/DBTest3/Areas/Identity/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/radig/OneDrive/Documents/Sites/Support-Software/DBTest3/Pages/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+[/Users/rado/Documents/School/Support-Software/DBTest3/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/radig/OneDrive/Documents/Sites/Support-Software/DBTest3/Pages/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+[/Users/rado/Documents/School/Support-Software/DBTest3/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hhcmVkL19MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/radig/OneDrive/Documents/Sites/Support-Software/DBTest3/Pages/Shared/_LoginPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
+[/Users/rado/Documents/School/Support-Software/DBTest3/Pages/Shared/_LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hhcmVkL19Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/radig/OneDrive/Documents/Sites/Support-Software/DBTest3/Pages/Shared/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+[/Users/rado/Documents/School/Support-Software/DBTest3/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/radig/OneDrive/Documents/Sites/Support-Software/DBTest3/Pages/_Host.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
+[/Users/rado/Documents/School/Support-Software/DBTest3/Pages/_Host.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX0hvc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/radig/OneDrive/Documents/Sites/Support-Software/DBTest3/Pages/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0xheW91dC5jc2h0bWw=
+[/Users/rado/Documents/School/Support-Software/DBTest3/Pages/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX0xheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/radig/OneDrive/Documents/Sites/Support-Software/DBTest3/Pages/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[/Users/rado/Documents/School/Support-Software/DBTest3/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
