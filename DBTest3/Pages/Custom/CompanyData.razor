@@ -1,0 +1,14 @@
+﻿@*@page "/Company/{token}"*@
+
+@*NON FUNCTIONAL*@
+
+<EditForm EditContext="editContext" OnSubmit="Submit">
+<div class="d-flex justify-content-center flex-nowrap">
+    <div class="row">
+            <div class="col-12 mt-2">
+                <label>Фамилия:</label>
+                <InputText @bind-Value="company.name" class="form-control" />
+            </div>
+    </div>
+</div>
+</EditForm>

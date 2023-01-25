@@ -55,19 +55,19 @@ Config.RegisterMappings(typeof(ErrorViewModel).GetType().Assembly);
 
 using (var scope = app.Services.CreateScope())
 {
-    //var roles = scope.ServiceProvider.GetService<IApplicationRoleService>();
-    //var user = scope.ServiceProvider.GetService<IApplicationUserService>();
-    //var ticket = scope.ServiceProvider.GetService<ITicketService>();
-    //var company = scope.ServiceProvider.GetService<ICompanyService>();
+    var roles = scope.ServiceProvider.GetService<IApplicationRoleService>();
+    var user = scope.ServiceProvider.GetService<IApplicationUserService>();
+    var ticket = scope.ServiceProvider.GetService<ITicketService>();
+    var company = scope.ServiceProvider.GetService<ICompanyService>();
 
-    //if(!company.hasAny())
-    //await company.CrateCompany("Admin");
+    if (!company.hasAny())
+        await company.CrateCompanyAsync("Admin");
 
-    //await roles.initRoles();
+    await roles.initRoles();
 
-    //await user.createUserAdmin();
+    await user.createUserAdmin();
 
-    //await ticket.initTicketStatuses();
+    await ticket.initTicketStatuses();
 }
 
 // Configure the HTTP request pipeline.

@@ -24,7 +24,18 @@ a, .btn-link {
     text-decoration: none;
 }
 
-.btnp:hover {
+.btnb {
+    color: #fff;
+    background-color: #EB6440;
+    border-radius: 15px;
+    width: 100px;
+    border: none;
+    transition: all 0.5s ease;
+    color: #fff;
+    text-decoration: none;
+}
+
+.btnp:hover, .btnb:hover {
     background-color: #f5896c;
     text-decoration: none;
     color: #fff;

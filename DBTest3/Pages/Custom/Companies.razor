@@ -1,0 +1,45 @@
+﻿@page "/Companies"
+
+@using DBTest3.Data.ViewModels
+<div class="row">
+    <div class="col-sm-2">
+        <EditForm Model="currentCompany">
+        @if(currentCompany.Id == 0)
+        {
+            <button @onclick="Create" class="btnb">Нов</button>
+        }else {
+            <button @onclick="Update" class="btnb">Промени</button>
+        }
+        <br />
+        <br />
+            <RadzenTextBox @bind-Value="@currentCompany.name" Change=@(args => OnChange(args, "TextBox")) Class="w-100" />
+        </EditForm>
+    </div>
+</div>
+<br />
+<RadzenDataGrid AllowFiltering="true" @ref="grid" Data="companies" TItem="CompanyVM" AllowAlternatingRows="false"
+                FilterMode="FilterMode.Advanced" AllowSorting="true" PageSize="15" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Left">
+    <Columns>
+        <RadzenDataGridColumn TItem="CompanyVM" Title="№" Frozen="true" Width="150px">
+            <Template Context="company">
+                <RadzenLabel Text="@((companies.IndexOf(company) + 1).ToString())" />
+            </Template>
+        </RadzenDataGridColumn>
+        <RadzenDataGridColumn TItem="CompanyVM" Frozen="true" Filterable="false" Width="80px" TextAlign="TextAlign.Left">
+            <Template Context="company">
+                <button @onclick="() => selectRow(company.Id)" style="background:none;border: none;">
+                    <i class="fa-regular fa-pen-to-square fa"></i>
+                </button>
+            </Template>
+        </RadzenDataGridColumn>
+        <RadzenDataGridColumn TItem="CompanyVM" Frozen="true" Filterable="false" Width="80px" TextAlign="TextAlign.Left">
+            <Template Context="company">
+                <button @onclick="() => deleteCompanies(company)" style="background:none;border: none;">
+                    <i class="fa-solid fa-trash fa"></i>
+                </button>
+            </Template>
+        </RadzenDataGridColumn>
+        <RadzenDataGridColumn TItem="CompanyVM" Property="Id" Filterable="false" Visible="false" Title="ID" Frozen="true" TextAlign="TextAlign.Center" />
+        <RadzenDataGridColumn TItem="CompanyVM" Property="name" Title="Име" Frozen="true" />
+    </Columns>
+</RadzenDataGrid>

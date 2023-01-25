@@ -52,10 +52,8 @@ namespace DBTest3.Service
 
         public async Task<UserVM> getUserById(string id)
         {
-
             var user = await userManager.FindByIdAsync(id);
-
-            return (await userManager.FindByIdAsync(id)).To<UserVM>();
+            return user.To<UserVM>();
         }
     }
 }
