@@ -24,6 +24,15 @@ namespace DBTest3.Data.ViewModels
         public long? CompanyId { get; set; }
         public CompanyVM? Company { get; set; }
 
+        public string? role { get; set; }
+
+        public string? oldPassword { get; set; }
+
+        public string? newPassword { get; set; }
+
+        [Compare(nameof(newPassword), ErrorMessage = "Passwords don't match.")]
+        public string? confirmPassword { get; set; }
+
         public ICollection<TicketsVM> Tickets { get; set; }
     }
 }

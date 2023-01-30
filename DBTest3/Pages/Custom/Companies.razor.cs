@@ -37,18 +37,6 @@ namespace DBTest3.Pages.Custom
             currentCompany = this.companyService.getCompanyById(id);
         }
 
-        public void Update()
-        {
-            this.companyService.UpdateCompany(currentCompany);
-            updateCompanies();
-        }
-
-        public void Create()
-        {
-           currentCompany = this.companyService.CrateCompany(currentCompany.name);
-            updateCompanies();
-        }
-
         public void updateCompanies()
         {
             companies = companyService.getAllCompanies();

@@ -1,14 +1,11 @@
 ﻿<Properties StartupConfiguration="{1C5E62AE-8352-421F-BE9C-5EF07F41E0EE}|Default">
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/rado/Documents/School/Support-Software/DBTest3/Pages/Custom/UserProfile.razor.cs" relfile="DBTest3/Pages/Custom/UserProfile.razor.cs" line="69" column="1" />
-    </BreakpointStore>
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.DBTest3 PreferredExecutionTarget="/Applications/Safari.app" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="DBTest3/Pages/Custom/ProjectData.razor">
+    <Files>
+      <File FileName="DBTest3/Pages/Custom/CompanyData.razor.cs" Line="12" Column="42" />
+      <File FileName="DBTest3/Pages/Custom/ProjectData.razor" Line="1" Column="10" />
+      <File FileName="DBTest3/Pages/Custom/ProjectData.razor.cs" Line="13" Column="1" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
@@ -20,21 +17,22 @@
               </Node>
               <Node name="Pages" expanded="True">
                 <Node name="Custom" expanded="True">
-                  <Node name="MainPage.razor" expanded="True">
-                    <Node name="MainPage.razor.cs" selected="True" />
-                  </Node>
-                  <Node name="UserProfile.razor" expanded="True" />
+                  <Node name="CompanyData.razor" expanded="True" />
+                  <Node name="ProjectData.razor" expanded="True" />
+                  <Node name="Projects.razor" expanded="True" />
                 </Node>
               </Node>
               <Node name="Service" expanded="True" />
-              <Node name="Shared" expanded="True" />
-              <Node name="wwwroot" expanded="True">
-                <Node name="css" expanded="True" />
-              </Node>
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.DBTest3 PreferredExecutionTarget="/Applications/Safari.app" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

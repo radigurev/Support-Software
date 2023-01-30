@@ -19,5 +19,10 @@ namespace DBTest3.Pages.Custom
         {
             users = await applicationUserService.getAllUsers();
         }
+
+        private async void deleteUser(UserVM user)
+        {
+            await applicationUserService.deleteUserAsync(user);
+        }
     }
 }

@@ -28,8 +28,8 @@ builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfi
     .AddRoles<Role>()
     .AddRoleManager<RoleManager<Role>>()
     .AddUserManager<UserManager<User>>()
-    .AddDefaultUI()
     .AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddDefaultUI()
     .AddDefaultTokenProviders();
 
 builder.Services.AddRazorPages();
@@ -40,7 +40,7 @@ builder.Services.AddTransient<IApplicationRoleService, ApplicationRoleService>()
 builder.Services.AddTransient<IApplicationUserService, ApplicationUserService>();
 builder.Services.AddTransient<ITicketService, TicketService>();
 builder.Services.AddTransient<ICompanyService, CompanyService>();
-
+builder.Services.AddTransient<IProjectService, ProjectService>();
 
 builder.Services.AddScoped<DialogService>();
 builder.Services.AddScoped<NotificationService>();

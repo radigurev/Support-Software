@@ -18,6 +18,16 @@ namespace DBTest3.Service
             this.applicationDbContext = applicationDbContext;
         }
 
+        public async Task<UserVM> createUser(UserVM currentUser)
+        {
+            var user = currentUser.To<User>();
+            await userManager.CreateAsync(user);
+
+            await userManager.AddToRoleAsync(user, currentUser.role);
+
+            return user.To<UserVM>();
+        }
+
         public async Task createUserAdmin()
         {
             if (!userManager.Users.Any())
@@ -34,9 +44,19 @@ namespace DBTest3.Service
 
                 user.CompanyId = company.Id;
 
+                user.FirstName = "Lidiya";
+
+                user.LastName = "Vicheva";
+
                 var res = await userManager.CreateAsync(user, "aA@1111");
 
+                await userManager.AddToRoleAsync(user, "Admin");
             }
+        }
+
+        public async Task deleteUserAsync(UserVM user)
+        {
+            await this.userManager.DeleteAsync(user.To<User>());
         }
 
         public async Task<List<UserVM>> getAllUsers()
@@ -52,8 +72,21 @@ namespace DBTest3.Service
 
         public async Task<UserVM> getUserById(string id)
         {
-            var user = await userManager.FindByIdAsync(id);
+            var user = userManager.Users.Include(x => x.Company).Where(x => x.Id == id).First();
             return user.To<UserVM>();
+        }
+
+        public async Task<string> getUserRole(UserVM currentUser)
+        {
+            var roleUser = applicationDbContext.UserRoles.Where(x => x.UserId == currentUser.Id).First();
+            var role = applicationDbContext.roles.Where(x => x.Id == roleUser.RoleId).First();
+            return role.Name;
+        }
+
+        public void updateUser(UserVM currentUser)
+        {
+            this.applicationDbContext.Update(currentUser.To<User>());
+            this.applicationDbContext.SaveChanges();
         }
     }
 }

@@ -1,0 +1,41 @@
+﻿@using DBTest3.Data.ViewModels
+
+<div class="row">
+    <div class="col-sm-2">
+
+        <a href="/Project/New" class="btnp">Нов</a>
+
+    </div>
+</div>
+<br />
+<RadzenDataGrid AllowFiltering="true" @ref="grid" Data="projects" TItem="ProjectsVM" AllowAlternatingRows="false"
+                FilterMode="FilterMode.Advanced" AllowSorting="true" PageSize="15" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Left">
+    <Columns>
+        <RadzenDataGridColumn TItem="ProjectsVM" Title="№" Frozen="true" Width="150px">
+            <Template Context="project">
+                <RadzenLabel Text="@((projects.IndexOf(project) + 1).ToString())" />
+            </Template>
+        </RadzenDataGridColumn>
+        <RadzenDataGridColumn TItem="ProjectsVM" Frozen="true" Filterable="false" Width="80px" TextAlign="TextAlign.Left">
+            <Template Context="project">
+                <a href="/Project/@project.Id">
+                    <i class="fa-regular fa-pen-to-square fa"></i>
+                </a>
+            </Template>
+        </RadzenDataGridColumn>
+        <RadzenDataGridColumn TItem="ProjectsVM" Frozen="true" Filterable="false" Width="80px" TextAlign="TextAlign.Left">
+            <Template Context="project">
+                <button @onclick="() => delete(project)" style="background:none;border: none;">
+                    <i class="fa-solid fa-trash fa"></i>
+                </button>
+            </Template>
+        </RadzenDataGridColumn>
+        <RadzenDataGridColumn TItem="ProjectsVM" Property="Id" Filterable="false" Visible="false" Title="ID" Frozen="true" TextAlign="TextAlign.Center" />
+        <RadzenDataGridColumn TItem="ProjectsVM" Property="name" Title="Име" Frozen="true" />
+        <RadzenDataGridColumn TItem="ProjectsVM" Property="Type" Title="Вид" Frozen="true" />
+        <RadzenDataGridColumn TItem="ProjectsVM" Property="NumberForContact" Title="Телефон" Frozen="true" />
+        <RadzenDataGridColumn TItem="ProjectsVM" Property="ProjectLeaderName" Title="Лице" Frozen="true" />
+
+
+    </Columns>
+</RadzenDataGrid>

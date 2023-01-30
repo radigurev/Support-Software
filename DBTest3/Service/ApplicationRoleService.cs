@@ -1,4 +1,6 @@
-﻿using DBTest3.Data.Entity;
+﻿using DBTest3.Config;
+using DBTest3.Data.Entity;
+using DBTest3.Data.ViewModels;
 using Microsoft.AspNetCore.Identity;
 
 namespace DBTest3.Service
@@ -11,6 +13,11 @@ namespace DBTest3.Service
         public ApplicationRoleService(RoleManager<Role> roleManager)
         {
             this.roleManager = roleManager;
+        }
+
+        public List<RoleVM> getRoles()
+        {
+            return roleManager.Roles.To<RoleVM>().ToList();
         }
 
         public async Task initRoles()

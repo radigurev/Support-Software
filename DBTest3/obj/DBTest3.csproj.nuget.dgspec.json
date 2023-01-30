@@ -1,27 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\radig\\OneDrive\\Documents\\Sites\\Support-Software\\DBTest3\\DBTest3.csproj": {}
+    "/Users/rado/Documents/School/Support-Software/DBTest3/DBTest3.csproj": {}
   },
   "projects": {
-    "C:\\Users\\radig\\OneDrive\\Documents\\Sites\\Support-Software\\DBTest3\\DBTest3.csproj": {
+    "/Users/rado/Documents/School/Support-Software/DBTest3/DBTest3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\radig\\OneDrive\\Documents\\Sites\\Support-Software\\DBTest3\\DBTest3.csproj",
+        "projectUniqueName": "/Users/rado/Documents/School/Support-Software/DBTest3/DBTest3.csproj",
         "projectName": "DBTest3",
-        "projectPath": "C:\\Users\\radig\\OneDrive\\Documents\\Sites\\Support-Software\\DBTest3\\DBTest3.csproj",
-        "packagesPath": "C:\\Users\\radig\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\radig\\OneDrive\\Documents\\Sites\\Support-Software\\DBTest3\\obj\\",
+        "projectPath": "/Users/rado/Documents/School/Support-Software/DBTest3/DBTest3.csproj",
+        "packagesPath": "/Users/rado/.nuget/packages/",
+        "outputPath": "/Users/rado/Documents/School/Support-Software/DBTest3/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\radig\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/rado/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "/usr/local/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -92,7 +91,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.102/RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -16,18 +16,15 @@ namespace DBTest3.Service
             this.applicationDbContext = applicationDbContext;
         }
 
-        public CompanyVM CrateCompany(string name)
+        public CompanyVM CrateCompany(CompanyVM company)
         {
-            var company = new Companies()
-            {
-                name = name,
-            };
-            applicationDbContext.companies.Add(company);
+            var companyDB = company.To<Companies>();
+            applicationDbContext.companies.Add(companyDB);
              applicationDbContext.SaveChanges();
 
             applicationDbContext.ChangeTracker.Clear();
 
-            return company.To<CompanyVM>();
+            return companyDB.To<CompanyVM>();
         }
 
         public async Task<CompanyVM> CrateCompanyAsync(string name)
@@ -77,6 +74,8 @@ namespace DBTest3.Service
         {
             this.applicationDbContext.Update(currentCompany.To<Companies>());
             this.applicationDbContext.SaveChanges();
+
+            this.applicationDbContext.ChangeTracker.Clear();
         }
     }
 }

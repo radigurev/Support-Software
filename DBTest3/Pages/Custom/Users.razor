@@ -9,15 +9,22 @@
 <RadzenDataGrid AllowFiltering="true" @ref="grid" Data="users" TItem="UserVM" AllowAlternatingRows="false"
 FilterMode="FilterMode.Advanced" AllowSorting="true" PageSize="15" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Left">
     <Columns>
-            <RadzenDataGridColumn TItem="UserVM" Title="№" Frozen="true">
-                <Template Context="user">
-                    <RadzenLabel Text="@((users.IndexOf(user) + 1).ToString())"/>
-                </Template>
-            </RadzenDataGridColumn>
+        <RadzenDataGridColumn TItem="UserVM" Title="№" Frozen="true">
+            <Template Context="user">
+                <RadzenLabel Text="@((users.IndexOf(user) + 1).ToString())" />
+            </Template>
+        </RadzenDataGridColumn>
         <RadzenDataGridColumn TItem="UserVM" Frozen="true" Filterable="false" Width="80px">
-                <Template Context="user">
+            <Template Context="user">
                 <a href="/UserProfile/@user.Id"><i class="fa-regular fa-pen-to-square fa"></i></a>
-                </Template>
+            </Template>
+        </RadzenDataGridColumn>
+        <RadzenDataGridColumn TItem="UserVM" Frozen="true" Filterable="false" Width="80px" TextAlign="TextAlign.Left">
+            <Template Context="user">
+                <button @onclick="() => deleteUser(user)" style="background:none;border: none;">
+                    <i class="fa-solid fa-trash fa"></i>
+                </button>
+            </Template>
             </RadzenDataGridColumn>
             <RadzenDataGridColumn TItem="UserVM" Property="Id" Filterable="false" Visible="false" Title="ID" Frozen="true" TextAlign="TextAlign.Center" />
             <RadzenDataGridColumn TItem="UserVM" Property="UserName" Title="UserName" Frozen="true" />

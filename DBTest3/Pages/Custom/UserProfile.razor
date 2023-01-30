@@ -2,53 +2,94 @@
 @page "/UserProfile/{Id}"
 @using DBTest3.Data.ViewModels;
 
-    <EditForm EditContext="editContext" OnSubmit="Submit">
-        <div class="d-flex justify-content-center flex-nowrap">
-            <div class="row">
+<EditForm EditContext="editContext" OnSubmit="Submit">
+    <ul>
+        @foreach (var msg in errorMessages)
+        {
+            <li class="validation-message">@msg</li>
+        }
+    </ul>
+    <div class="d-flex justify-content-center flex-nowrap">
+        <div class="row">
+            <div class="col-4 mt-2">
+                <label>Име:</label>
+                <InputText @bind-Value="CurrentUser.FirstName" class="form-control" />
+            </div>
+            <div class="col-4 mt-2">
+                <label>Фамилия:</label>
+                <InputText @bind-Value="CurrentUser.PhoneNumber" class="form-control" />
+            </div>
+            <div class="col-4 mt-2">
+                <label>Номер:</label>
+                <InputText @bind-Value="CurrentUser.LastName" class="form-control" />
+            </div>
+            <div class="col-4 mt-2">
+                <label>Email:</label>
+                <InputText @bind-Value="CurrentUser.Email" class="form-control" />
+            </div>
+            <div class="col-4 mt-2">
+                <label>ЕГН:</label>
+                <InputText @bind-Value="CurrentUser.EGN" class="form-control" />
+            </div>
+            @if (Id == "New")
+            {
                 <div class="col-4 mt-2">
-                    <label>Име:</label>
-                    <InputText @bind-Value="CurrentUser.FirstName" class="form-control" />
+                    <label>Фирма:</label>
+                    <RadzenDropDown AllowClear="true" AllowFiltering="true" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive" @bind-Value=@CurrentUser.CompanyId
+                                    Data=@companies TextProperty="name" ValueProperty="Id" Class="w-100">
+                        <Template Context="company">
+                            Company: @(company.name)
+                        </Template>
+                    </RadzenDropDown>
                 </div>
+                <div class="col-3 mt-2">
+                    <label>Стара парола:</label>
+                    <InputText @bind-Value="CurrentUser.oldPassword" class="form-control" />
+                </div>
+                <div class="col-3 mt-2">
+                    <label>Нова Парола:</label>
+                    <InputText @bind-Value="CurrentUser.newPassword" class="form-control" />
+                </div>
+                <div class="col-3 mt-2">
+                    <label>Потвърди парола:</label>
+                    <InputText @bind-Value="CurrentUser.confirmPassword" class="form-control" />
+                </div>
+                <div class="col-3 mt-2">
+                    <label>Роля:</label>
+                    <RadzenDropDown AllowClear="true" AllowFiltering="true" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive" @bind-Value=@CurrentUser.role
+                                    Data=@roles TextProperty="name" ValueProperty="Id" Class="w-100">
+                        <Template Context="role">
+                            Роля: @(role.Name)
+                        </Template>
+                    </RadzenDropDown>
+                </div>
+            }
+            else
+            {
                 <div class="col-4 mt-2">
-                    <label>Фамилия:</label>
-                    <InputText @bind-Value="CurrentUser.PhoneNumber" class="form-control" />
+                    <label>Фирма:</label>
+                    <InputText disabled="true" @bind-Value="CurrentUser.Company.name" class="form-control" />
                 </div>
-                <div class="col-4 mt-2">
-                    <label>Номер:</label>
-                    <InputText @bind-Value="CurrentUser.LastName" class="form-control" />
-                </div>
-                <div class="col-4 mt-2">
-                    <label>Email:</label>
-                    <InputText @bind-Value="CurrentUser.Email" class="form-control" />
-                </div>
-                <div class="col-4 mt-2">
-                    <label>ЕГН:</label>
-                    <InputText @bind-Value="CurrentUser.EGN" class="form-control" />
-                </div>
-                @if (Id == "New")
-                {
-                    <div class="col-4 mt-2">
-                        <label>Фирма:</label>
-                            <RadzenDropDown AllowClear="true" AllowFiltering="true" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive" @bind-Value=@CurrentUser.CompanyId
-                                            Data=@companies TextProperty="name" ValueProperty="Id" Class="w-100">
-                                <Template Context="company">
-                                    Company: @(company.name)
-                                </Template>
-                            </RadzenDropDown>
-                    </div>
-                }
-                else
-                {
-                    <div class="col-4 mt-2">
-                        <label>Фирма:</label>
-                        <InputText disabled="true" @bind-Value="CurrentUser.Company.name" class="form-control" />
-                    </div>
-                }
 
-                <br />
-                <div class="col-lg-12">
-                    <button class="btnp">Запази</button>
+                <div class="col-4 mt-2">
+                    <label>Парола:</label>
+                    <InputText @bind-Value="CurrentUser.newPassword" class="form-control" />
                 </div>
+
+                <div class="col-4 mt-2">
+                    <label>Потвърди парола:</label>
+                    <InputText @bind-Value="CurrentUser.confirmPassword" class="form-control" />
+                </div>
+                <div class="col-4 mt-2">
+                    <label>Роля:</label>
+                    <InputText disabled="true" @bind-Value="CurrentUser.role" class="form-control" />
+                </div>
+            }
+
+            <br />
+            <div class="col-lg-12 mt-2">
+                <button class="btnp">Запази</button>
             </div>
         </div>
-    </EditForm>
+            </div>
+</EditForm>

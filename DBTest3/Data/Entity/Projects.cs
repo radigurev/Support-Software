@@ -18,6 +18,10 @@ namespace DBTest3.Data.Entity
 
 		public string Type { get; set; }
 
+        public string NumberForContact { get; set; }
+
+        public string ProjectLeaderName { get; set; }
+
         [ForeignKey(nameof(Company))]
         public long? IdCompany { get; set; }
         public Companies Company { get; set; }

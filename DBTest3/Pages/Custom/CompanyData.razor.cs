@@ -6,8 +6,6 @@ using Microsoft.AspNetCore.Components.Forms;
 namespace DBTest3.Pages.Custom
 {
 
-    //NON FUNCTIONAL
-
     public partial class CompanyData
     {
         [Parameter]
@@ -16,14 +14,13 @@ namespace DBTest3.Pages.Custom
         private CompanyVM company;
         EditContext editContext;
 
+        private List<string> errorMessages = new List<string>();
 
         [Inject]
         private ICompanyService companyService { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
-
-
             if (!string.IsNullOrWhiteSpace(Token))
             {
                 if (Token.Equals("New"))
@@ -35,12 +32,30 @@ namespace DBTest3.Pages.Custom
                     company = companyService.getCompanyById(long.Parse(Token));
                 }
                  editContext = new EditContext(company);
+                editContext.EnableDataAnnotationsValidation();
+
             }
         }
 
         private async Task Submit()
         {
+            var validate = this.editContext.Validate();
 
+
+
+            if(validate)
+            {
+                if (company.Id == 0)
+                    company = this.companyService.CrateCompany(company);
+                else
+                    this.companyService.UpdateCompany(company);
+
+                errorMessages.Clear();
+            }
+            else
+            {
+                errorMessages.AddRange(editContext.GetValidationMessages());
+            }
         }
     }
 }

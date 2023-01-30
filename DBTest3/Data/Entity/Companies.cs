@@ -14,6 +14,12 @@ namespace DBTest3.Data.Entity
 
 		public string name { get; set; }
 
+		public string EIK { get; set; }
+
+		public string address { get; set; }
+
+		public string ManagerName { get; set; }
+
         public virtual ICollection<Projects> Projects { get; set; }
     }
 }
