@@ -4,6 +4,8 @@ namespace DBTest3.Service
 {
     public interface IApplicationUserService
     {
+
+        Task<bool> hasRole(UserVM user,string role);
         Task<UserVM> createUser(UserVM currentUser);
         Task createUserAdmin();
         Task deleteUserAsync(UserVM user);

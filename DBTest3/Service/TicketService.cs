@@ -3,6 +3,7 @@ using DBTest3.Config;
 using DBTest3.Data;
 using DBTest3.Data.Entity;
 using DBTest3.Data.ViewModels;
+using DBTest3.Pages.Custom;
 
 namespace DBTest3.Service
 {
@@ -17,10 +18,28 @@ namespace DBTest3.Service
         }
 
         #region Ticket
-        public List<TicketsVM> getToDoTickets(TicketStatusVM status)
+        public List<TicketsVM> getTicketsByStatusAdmin(TicketStatusVM status, UserVM user = null)
         {
-            //Взимане на лист с даден статус
-            var ticketList = applicationDbContext.tickets.Where(x => x.StatusId == status.Id).To<TicketsVM>().ToList();
+            List<TicketsVM> ticketList;
+
+            //Взимане на лист с даден статус и ако имаме подаден user(Админ) взимаме конкретните билети свъзрани с него
+            if (user == null)
+               ticketList  = applicationDbContext.tickets.Where(x => x.StatusId == status.Id).To<TicketsVM>().ToList();
+            else
+                ticketList = applicationDbContext.tickets.Where(x => x.StatusId == status.Id && x.WorkerId == user.Id).To<TicketsVM>().ToList();
+
+            return ticketList;
+        }
+
+        public List<TicketsVM> getTicketsByStatusUser(TicketStatusVM status, UserVM user = null)
+        {
+            List<TicketsVM> ticketList;
+
+            //Взимане на лист с даден статус и ако имаме подаден user(Админ) взимаме конкретните билети свъзрани с него
+            if (user == null)
+                ticketList = applicationDbContext.tickets.Where(x => x.StatusId == status.Id).To<TicketsVM>().ToList();
+            else
+                ticketList = applicationDbContext.tickets.Where(x => x.StatusId == status.Id && x.ClientId == user.Id).To<TicketsVM>().ToList();
 
             return ticketList;
         }

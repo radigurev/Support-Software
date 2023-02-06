@@ -17,12 +17,21 @@ namespace DBTest3.Pages.Custom
 
         protected override async Task OnInitializedAsync()
         {
-            users = await applicationUserService.getAllUsers();
+            await updateTable();
         }
 
-        private async void deleteUser(UserVM user)
+        private async Task deleteUser(UserVM user)
         {
-            await applicationUserService.deleteUserAsync(user);
+            try
+            {
+                await applicationUserService.deleteUserAsync(user);
+                await updateTable();
+            }catch(Exception e) { }
+        }
+
+        private async Task updateTable()
+        {
+            users = await applicationUserService.getAllUsers();
         }
     }
 }

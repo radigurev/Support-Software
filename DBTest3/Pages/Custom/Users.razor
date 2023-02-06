@@ -21,7 +21,7 @@ FilterMode="FilterMode.Advanced" AllowSorting="true" PageSize="15" AllowPaging="
         </RadzenDataGridColumn>
         <RadzenDataGridColumn TItem="UserVM" Frozen="true" Filterable="false" Width="80px" TextAlign="TextAlign.Left">
             <Template Context="user">
-                <button @onclick="() => deleteUser(user)" style="background:none;border: none;">
+                <button disabled="@user.Email.Equals("radi.gurev@rado-development.eu")" @onclick="() => deleteUser(user)" style="background:none;border: none;">
                     <i class="fa-solid fa-trash fa"></i>
                 </button>
             </Template>

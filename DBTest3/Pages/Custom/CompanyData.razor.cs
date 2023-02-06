@@ -39,23 +39,24 @@ namespace DBTest3.Pages.Custom
 
         private async Task Submit()
         {
-            var validate = this.editContext.Validate();
-
-
-
-            if(validate)
+            try
             {
-                if (company.Id == 0)
-                    company = this.companyService.CrateCompany(company);
+                var validate = this.editContext.Validate();
+
+                if (validate)
+                {
+                    if (company.Id == 0)
+                        company = this.companyService.CrateCompany(company);
+                    else
+                        this.companyService.UpdateCompany(company);
+
+                    errorMessages.Clear();
+                }
                 else
-                    this.companyService.UpdateCompany(company);
-
-                errorMessages.Clear();
-            }
-            else
-            {
-                errorMessages.AddRange(editContext.GetValidationMessages());
-            }
+                {
+                    errorMessages.AddRange(editContext.GetValidationMessages());
+                }
+            }catch(Exception e) { }
         }
     }
 }

@@ -26,6 +26,8 @@ namespace DBTest3.Pages.Custom
 
         List<RoleVM> roles;
 
+        bool isUserSaved = true;
+
         [Parameter]
         public string Id { get; set; }
 
@@ -47,15 +49,15 @@ namespace DBTest3.Pages.Custom
                         var user = authState.User;
 
                         CurrentUser = await this.applicationUserService.getUserByEmail(user.Identity.Name);
-                    
                 }
                 else
                 {
-                    if (Id.Equals("New"))
+                    if (Id.ToLower().Equals("new"))
                     {
                         CurrentUser = new UserVM();
                         CurrentUser.Company = new CompanyVM();
                         roles = applicationRoleService.getRoles();
+                        isUserSaved = false;
                     }
                     else
                     {
@@ -74,24 +76,30 @@ namespace DBTest3.Pages.Custom
 
         public void Submit()
         {
-            var validate = this.editContext.Validate();
-
-
-            if (validate)
+            try
             {
-                var adminCompany = companies.Where(x => x.name.Equals("Admin")).First();
-                if (CurrentUser.role == "Admin" && CurrentUser.CompanyId != adminCompany.Id)
+                var validate = this.editContext.Validate();
+
+
+                if (validate)
                 {
-                    errorMessages.Add("Админ или проверител трябва да имат компания 'Админ' !");
-                }
-                else
-                {
-                    if (string.IsNullOrEmpty(CurrentUser.Id))
-                        applicationUserService.createUser(CurrentUser);
+                    var adminCompany = companies.Where(x => x.name.Equals("Admin")).First();
+                    if (CurrentUser.role == "Admin" && CurrentUser.CompanyId != adminCompany.Id)
+                    {
+                        errorMessages.Add("Админ или проверител трябва да имат компания 'Админ' !");
+                    }
                     else
-                        applicationUserService.updateUser(CurrentUser);
+                    {
+                        if (!isUserSaved)
+                        {
+                            applicationUserService.createUser(CurrentUser);
+                            isUserSaved = true;
+                        }
+                        else
+                            applicationUserService.updateUser(CurrentUser);
+                    }
                 }
-            }
+            }catch(Exception e) { }
         }
 
     }

@@ -1,1 +1,52 @@
 ﻿@page "/Project/{token}"
+
+<EditForm EditContext="editContext" OnSubmit="Submit">
+    <ul>
+        @foreach (var msg in errorMessages)
+        {
+            <li class="validation-message">@msg</li>
+        }
+    </ul>
+    <div class="d-flex justify-content-center flex-nowrap">
+        <div class="row">
+            <div class="col-6 mt-2">
+                <label>Име:</label>
+                <InputText @bind-Value="project.name" class="form-control" />
+            </div>
+            <div class="col-6 mt-2">
+                <label>Адрес:</label>
+                <InputText @bind-Value="project.Type" class="form-control" />
+            </div>
+            <div class="col-6 mt-2">
+                <label>ЕИК:</label>
+                <InputText @bind-Value="project.NumberForContact" class="form-control" />
+            </div>
+            <div class="col-6 mt-2">
+                <label>Мениджър(Име):</label>
+                <InputText @bind-Value="project.ProjectLeaderName" class="form-control" />
+            </div>
+            @if (project.Id != 0)
+            {
+                <div class="col-6 mt-2">
+                    <label>Мениджър(Име):</label>
+                    <InputText disabled="true" @bind-Value="project.Company.name" class="form-control" />
+                </div>
+            }
+            else
+            {
+                <div class="col-4 mt-2">
+                    <label>Фирма:</label>
+                    <RadzenDropDown AllowClear="true" AllowFiltering="true" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive" @bind-Value=@project.IdCompany
+                                Data=@companies TextProperty="name" ValueProperty="Id" Class="w-100">
+                        <Template Context="company">
+                            Company: @(company.name)
+                        </Template>
+                    </RadzenDropDown>
+                </div>
+            }
+            <div class="col-lg-12 mt-2">
+                <button class="btnp">Запази</button>
+            </div>
+        </div>
+    </div>
+</EditForm>

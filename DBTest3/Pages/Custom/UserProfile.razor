@@ -42,18 +42,7 @@
                         </Template>
                     </RadzenDropDown>
                 </div>
-                <div class="col-3 mt-2">
-                    <label>Стара парола:</label>
-                    <InputText @bind-Value="CurrentUser.oldPassword" class="form-control" />
-                </div>
-                <div class="col-3 mt-2">
-                    <label>Нова Парола:</label>
-                    <InputText @bind-Value="CurrentUser.newPassword" class="form-control" />
-                </div>
-                <div class="col-3 mt-2">
-                    <label>Потвърди парола:</label>
-                    <InputText @bind-Value="CurrentUser.confirmPassword" class="form-control" />
-                </div>
+
                 <div class="col-3 mt-2">
                     <label>Роля:</label>
                     <RadzenDropDown AllowClear="true" AllowFiltering="true" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive" @bind-Value=@CurrentUser.role
@@ -70,17 +59,20 @@
                     <label>Фирма:</label>
                     <InputText disabled="true" @bind-Value="CurrentUser.Company.name" class="form-control" />
                 </div>
-
-                <div class="col-4 mt-2">
+                <div class="col-3 mt-2">
+                    <label>Стара парола:</label>
+                    <InputText @bind-Value="CurrentUser.oldPassword" class="form-control" />
+                </div>
+                <div class="col-3 mt-2">
                     <label>Парола:</label>
                     <InputText @bind-Value="CurrentUser.newPassword" class="form-control" />
                 </div>
 
-                <div class="col-4 mt-2">
+                <div class="col-3 mt-2">
                     <label>Потвърди парола:</label>
                     <InputText @bind-Value="CurrentUser.confirmPassword" class="form-control" />
                 </div>
-                <div class="col-4 mt-2">
+                <div class="col-3 mt-2">
                     <label>Роля:</label>
                     <InputText disabled="true" @bind-Value="CurrentUser.role" class="form-control" />
                 </div>

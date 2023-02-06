@@ -1,4 +1,8 @@
-﻿<nav class="main-menu">
+﻿@using DBTest3.Data.ViewModels
+@using DBTest3.Service
+@inject IApplicationUserService userService
+
+<nav class="main-menu">
     <div>
         <a class="logo" href="http://startific.com">
         </a>
@@ -11,18 +15,45 @@
                 <span class="nav-text">Билети</span>
             </a>
         </li>
-        <li>
-            <a href="/users">
-                <i class="fa fa-solid fa-users fa-lg"></i>
-                <span class="nav-text">Потребители</span>
-            </a>
-        </li>
-        <li>
-            <a href="/Companies">
-                <i class="fa fa-solid fa-table-list fa-lg"></i>
-                <span class="nav-text">Фирми</span>
-            </a>
-        </li>
+        @if (role.Equals("Admin"))
+        {
+            <li>
+                <a href="/users">
+                    <i class="fa fa-solid fa-users fa-lg"></i>
+                    <span class="nav-text">Потребители</span>
+                </a>
+            </li>
+            <li>
+                <a href="/Companies">
+                    <i class="fa fa-solid fa-table-list fa-lg"></i>
+                    <span class="nav-text">Фирми</span>
+                </a>
+            </li>
+            <li>
+                <a href="/Projects">
+                    <i class="fa fa-solid fa-clock fa-lg"></i>
+                    <span class="nav-text">Проекти</span>
+                </a>
+            </li>
+        }
+        else if (role.Equals("Validator"))
+        {
+            <li>
+                <a href="/WaitingTickets">
+                    <i class="fa fa-solid fa-diagram-project fa-lg"></i>
+                    <span class="nav-text">Чакащи</span>
+                </a>
+            </li>
+        }
+        else
+        {
+            <li>
+                <a href="/Projects">
+                    <i class="fa fa-solid fa-clock fa-lg"></i>
+                    <span class="nav-text">Проекти</span>
+                </a>
+            </li>
+        }
     </ul>
     <ul class="logout">
         <li>
@@ -35,3 +66,22 @@
         </li>
     </ul>
 </nav>
+
+@code {
+    [CascadingParameter] private Task<AuthenticationState> authenticationStateTask { get; set; }
+
+    UserVM CurrentUser;
+
+    private string role = string.Empty;
+
+    protected async override Task OnInitializedAsync()
+    {
+        var authState = await authenticationStateTask;
+        var user = authState.User;
+
+        CurrentUser = await this.userService.getUserByEmail(user.Identity.Name);
+
+        role = await this.userService.getUserRole(CurrentUser);
+    }
+
+}

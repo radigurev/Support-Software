@@ -34,19 +34,29 @@ namespace DBTest3.Pages.Custom
 
         public void selectRow(long id)
         {
-            currentCompany = this.companyService.getCompanyById(id);
+            try
+            {
+                currentCompany = this.companyService.getCompanyById(id);
+
+            }catch(Exception e) { }
         }
 
         public void updateCompanies()
         {
-            companies = companyService.getAllCompanies();
+            try
+            {
+                companies = companyService.getAllCompanies();
+            }catch(Exception e) { }
         }
 
         public void deleteCompanies(CompanyVM company)
         {
-            this.companyService.deleteCompany(company);
-            updateCompanies();
-            currentCompany = new CompanyVM();
+            try
+            {
+                this.companyService.deleteCompany(company);
+                updateCompanies();
+                currentCompany = new CompanyVM();
+            }catch(Exception e) { }
         }
     }
 }

@@ -15,6 +15,11 @@ namespace DBTest3.Service
             this.roleManager = roleManager;
         }
 
+        public string getRoleById(string? role)
+        {
+            return roleManager.FindByIdAsync(role).Result.Name;
+        }
+
         public List<RoleVM> getRoles()
         {
             return roleManager.Roles.To<RoleVM>().ToList();

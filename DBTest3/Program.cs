@@ -24,7 +24,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 
-builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = false)
+builder.Services.AddDefaultIdentity<User>(options => { options.Password.RequireNonAlphanumeric = false; options.Password.RequireDigit = false; options.SignIn.RequireConfirmedAccount = false; })
     .AddRoles<Role>()
     .AddRoleManager<RoleManager<Role>>()
     .AddUserManager<UserManager<User>>()
@@ -40,6 +40,7 @@ builder.Services.AddTransient<IApplicationRoleService, ApplicationRoleService>()
 builder.Services.AddTransient<IApplicationUserService, ApplicationUserService>();
 builder.Services.AddTransient<ITicketService, TicketService>();
 builder.Services.AddTransient<ICompanyService, CompanyService>();
+builder.Services.AddTransient<IMailService, MailService>();
 builder.Services.AddTransient<IProjectService, ProjectService>();
 
 builder.Services.AddScoped<DialogService>();
