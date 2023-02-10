@@ -52,6 +52,38 @@ namespace DBTest3.Pages.Custom
                 ClosedTickets = ticketService.getTicketsByStatusUser(ticketService.getTicketStatus("ClosedStatus"), CurrentUser);
             }
         }
+
+        private void ChangeToDo()
+        {
+            if (ShowToDo)
+                ShowToDo = false;
+            else
+                ShowToDo = true;
+        }
+
+        private void ChangeInProgress()
+        {
+            if (ShowInProgress)
+                ShowInProgress = false;
+            else
+                ShowInProgress = true;
+        }
+
+        private void ChangeWaitingAnswer()
+        {
+            if (ShowWaitingAnswer)
+                ShowWaitingAnswer = false;
+            else
+                ShowWaitingAnswer = true;
+        }
+
+        private void ChangeClosed()
+        {
+            if (ShowClosedStatus)
+                ShowClosedStatus = false;
+            else
+                ShowClosedStatus = true;
+        }
     }
 }
 

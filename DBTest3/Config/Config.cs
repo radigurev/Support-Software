@@ -48,6 +48,10 @@ namespace DBTest3.Config
                 .ForMember(dest => dest.Projects, options => options.ExplicitExpansion())
                 .ReverseMap();
 
+                configuration.CreateMap<Chat, ChatVM>()
+              .ForMember(dest => dest.Ticket, options => options.ExplicitExpansion())
+              .ReverseMap();
+
 
                 foreach (var mapping in GetToMappings(types))
                 {

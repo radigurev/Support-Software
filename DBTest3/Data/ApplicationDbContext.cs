@@ -30,5 +30,6 @@ namespace DBTest3.Data
         public DbSet<Projects> projects { get; set; }
         public DbSet<Tickets> tickets { get; set; }
         public DbSet<TicketStatus> ticketStatuses { get; set; }
+        public DbSet<Chat> chats { get; set; }
     }
 }

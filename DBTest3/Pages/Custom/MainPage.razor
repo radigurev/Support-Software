@@ -2,10 +2,16 @@
 
 <AuthorizeView>
     <Authorized>
+
+        @if (role.Equals("User"))
+        {
+            <a href="/Tickets/New" class="btnp">Нов</a>
+        }
+
         <div class="d-table w-100 section-text">
             <h1 class="d-table-cell section-text-text">TO DO</h1>
             <div class="d-table-cell tar">
-                <button style="background:none;border: none;">
+                <button onclick="@ChangeToDo" style="background:none;border: none;">
                     @if (ShowToDo)
                     {
                         <i class="fa-solid fa-eye fa"></i>
@@ -55,7 +61,7 @@
         <div class="d-table w-100 section-text">
             <h1 class="d-table-cell section-text-text">In Progress</h1>
             <div class="d-table-cell tar">
-                <button style="background:none;border: none;">
+                <button onclick="@ChangeInProgress" style="background:none;border: none;">
                     @if (ShowInProgress)
                     {
                         <i class="fa-solid fa-eye fa"></i>
@@ -105,7 +111,7 @@
         <div class="d-table w-100 section-text">
             <h1 class="d-table-cell section-text-text">Awaiting answer</h1>
             <div class="d-table-cell tar">
-                <button style="background:none;border: none;">
+                <button onclick="@ChangeWaitingAnswer" style="background:none;border: none;">
                     @if (ShowWaitingAnswer)
                     {
                         <i class="fa-solid fa-eye fa"></i>
@@ -155,7 +161,7 @@
         <div class="d-table w-100 section-text">
             <h1 class="d-table-cell section-text-text">Closed tickets</h1>
             <div class="d-table-cell tar">
-                <button style="background:none;border: none;">
+                <button onclick="@ChangeClosed" style="background:none;border: none;">
                     @if (ShowClosedStatus)
                     {
                         <i class="fa-solid fa-eye fa"></i>
