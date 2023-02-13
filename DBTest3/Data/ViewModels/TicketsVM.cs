@@ -24,7 +24,7 @@ namespace DBTest3.Data.ViewModels
         public UserVM Worker { get; set; }
 
         [ForeignKey(nameof(Status))]
-        public long StatusId { get; set; }
+        public long? StatusId { get; set; }
         public TicketStatus Status { get; set; }
     }
 }

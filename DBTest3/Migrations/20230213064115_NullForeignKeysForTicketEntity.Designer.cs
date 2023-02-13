@@ -4,6 +4,7 @@ using DBTest3.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DBTest3.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230213064115_NullForeignKeysForTicketEntity")]
+    partial class NullForeignKeysForTicketEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -162,6 +164,7 @@ namespace DBTest3.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<long?>("StatusId")
+                        .IsRequired()
                         .HasColumnType("bigint");
 
                     b.Property<string>("Title")
@@ -430,9 +433,10 @@ namespace DBTest3.Migrations
                         .IsRequired();
 
                     b.HasOne("DBTest3.Data.Entity.TicketStatus", "Status")
-                        .WithMany("Tickets")
+                        .WithMany()
                         .HasForeignKey("StatusId")
-                        .OnDelete(DeleteBehavior.NoAction);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("DBTest3.Data.Entity.User", "Worker")
                         .WithMany("Tickets")
@@ -514,11 +518,6 @@ namespace DBTest3.Migrations
             modelBuilder.Entity("DBTest3.Data.Entity.Tickets", b =>
                 {
                     b.Navigation("Chats");
-                });
-
-            modelBuilder.Entity("DBTest3.Data.Entity.TicketStatus", b =>
-                {
-                    b.Navigation("Tickets");
                 });
 
             modelBuilder.Entity("DBTest3.Data.Entity.User", b =>

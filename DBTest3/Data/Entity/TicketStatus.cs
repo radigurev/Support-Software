@@ -20,6 +20,8 @@ namespace DBTest3.Data.Entity
 		//За теглене от база данни
 		[Required]
 		public string Code { get; set; }
+
+		public virtual ICollection<Tickets> Tickets { get; set; }
     }
 }
 

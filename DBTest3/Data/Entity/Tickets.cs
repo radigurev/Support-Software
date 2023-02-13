@@ -30,7 +30,7 @@ namespace DBTest3.Data.Entity
         public User Worker { get; set; }
 
         [ForeignKey(nameof(Status))]
-		public long StatusId { get; set; }
+		public long? StatusId { get; set; }
 		public TicketStatus Status { get; set; }
 
 		public virtual ICollection<Chat> Chats { get; set; }

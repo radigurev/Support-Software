@@ -9,5 +9,6 @@ namespace DBTest3.Service
         TicketStatusVM getTicketStatus(string statusCode);
 
         Task initTicketStatuses();
+        TicketsVM saveTicket(TicketsVM ticket);
     }
 }

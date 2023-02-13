@@ -1,6 +1,6 @@
 ﻿@page "/Tickets/{token}"
 
-@if (Ticket.Id != 0)
+@if (Ticket.Id != 0 && Ticket.StatusId != 0)
 {
     <div class="page-content page-container" id="page-content">
         <div class="padding">
@@ -104,8 +104,8 @@
 }
 else
 {
-    <EditForm Model="Ticket">
-
+    <p class="text-center validation-message">@msg</p>
+    <EditForm Model="Ticket" OnSubmit="Submit">
         <div class="d-flex justify-content-center flex-nowrap">
             <div class="row" style="width: 100%!important">
                 <div class="col-7 mt-2">
@@ -116,8 +116,10 @@ else
                     <label>Опсиание на проблем:</label>
                     <InputTextArea @bind-Value="Ticket.Problem" class="form-control" />
                 </div>
-            </div>
-           
+                <div class="col-lg-12 mt-2">
+                    <button type="submit" class="btnp">Запази</button>
+                </div>
+            </div>   
         </div>
     </EditForm>
 

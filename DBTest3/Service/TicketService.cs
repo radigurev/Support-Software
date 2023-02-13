@@ -3,7 +3,6 @@ using DBTest3.Config;
 using DBTest3.Data;
 using DBTest3.Data.Entity;
 using DBTest3.Data.ViewModels;
-using DBTest3.Pages.Custom;
 
 namespace DBTest3.Service
 {
@@ -91,6 +90,18 @@ namespace DBTest3.Service
                 await applicationDbContext.AddRangeAsync(statuses);
                 await applicationDbContext.SaveChangesAsync();
             }
+        }
+
+        public TicketsVM saveTicket(TicketsVM ticketVM)
+        {
+
+
+            var ticket = ticketVM.To<Tickets>();
+
+            this.applicationDbContext.Add(ticket);
+            this.applicationDbContext.SaveChanges();
+
+            return ticket.To<TicketsVM>();
         }
         #endregion
     }

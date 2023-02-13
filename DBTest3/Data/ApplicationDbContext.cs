@@ -21,7 +21,14 @@ namespace DBTest3.Data
             builder.Entity<Tickets>()
                 .HasOne(x => x.Worker)
                 .WithMany(x => x.Tickets)
-                .OnDelete(DeleteBehavior.NoAction);
+                .OnDelete(DeleteBehavior.NoAction)
+                .IsRequired(false);
+
+            builder.Entity<Tickets>()
+                .HasOne(x => x.Status)
+                .WithMany(x => x.Tickets)
+                .OnDelete(DeleteBehavior.NoAction)
+                .IsRequired(false);
         }
 
         public DbSet<User> users { get; set; }
