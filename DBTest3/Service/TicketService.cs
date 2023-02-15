@@ -3,6 +3,7 @@ using DBTest3.Config;
 using DBTest3.Data;
 using DBTest3.Data.Entity;
 using DBTest3.Data.ViewModels;
+using Microsoft.EntityFrameworkCore;
 
 namespace DBTest3.Service
 {
@@ -30,13 +31,13 @@ namespace DBTest3.Service
             if (status != null)
             {
                 if (user == null)
-                    ticketList = applicationDbContext.tickets.Where(x => x.StatusId == status.Id).To<TicketsVM>().ToList();
+                    ticketList = applicationDbContext.tickets.Where(x => x.StatusId == status.Id).Include(x => x.Client).To<TicketsVM>().ToList();
                 else
-                    ticketList = applicationDbContext.tickets.Where(x => x.StatusId == status.Id && x.WorkerId == user.Id).To<TicketsVM>().ToList();
+                    ticketList = applicationDbContext.tickets.Where(x => x.StatusId == status.Id && x.WorkerId == user.Id).Include(x => x.Client).To<TicketsVM>().ToList();
             }
             else
             {
-                ticketList = applicationDbContext.tickets.Where(x => x.StatusId == null).To<TicketsVM>().ToList();
+                ticketList = applicationDbContext.tickets.Where(x => x.StatusId == null).Include(x => x.Client).To<TicketsVM>().ToList();
             }
             return ticketList;
         }
@@ -45,13 +46,41 @@ namespace DBTest3.Service
         {
             List<TicketsVM> ticketList;
 
-            //Взимане на лист с даден статус и ако имаме подаден user(Админ) взимаме конкретните билети свъзрани с него
+            //Взимане на лист с даден статус и ако имаме подаден user(User) взимаме конкретните билети свъзрани с него
             if (user == null)
                 ticketList = applicationDbContext.tickets.Where(x => x.StatusId == status.Id).To<TicketsVM>().ToList();
             else
                 ticketList = applicationDbContext.tickets.Where(x => x.StatusId == status.Id && x.ClientId == user.Id).To<TicketsVM>().ToList();
 
             return ticketList;
+        }
+
+        public TicketsVM saveTicket(TicketsVM ticketVM)
+        {
+            var ticket = ticketVM.To<Tickets>();
+
+            this.applicationDbContext.Add(ticket);
+            this.applicationDbContext.SaveChanges();
+
+            return ticket.To<TicketsVM>();
+        }
+
+        public void changeTicketSatus(TicketsVM ticketVM, string status)
+        {
+            this.applicationDbContext.ChangeTracker.Clear();
+            var ticket = ticketVM.To<Tickets>();
+
+            ticket.StatusId = getTicketStatus(status).Id;
+
+            this.applicationDbContext.Update(ticket);
+            this.applicationDbContext.SaveChanges();
+        }
+        public void deleteTicket(TicketsVM ticket)
+        {
+            this.applicationDbContext.ChangeTracker.Clear();
+
+            this.applicationDbContext.Remove(ticket.To<Tickets>());
+            this.applicationDbContext.SaveChanges();
         }
         #endregion
 
@@ -103,15 +132,7 @@ namespace DBTest3.Service
             }
         }
 
-        public TicketsVM saveTicket(TicketsVM ticketVM)
-        {
-            var ticket = ticketVM.To<Tickets>();
-
-            this.applicationDbContext.Add(ticket);
-            this.applicationDbContext.SaveChanges();
-
-            return ticket.To<TicketsVM>();
-        }
+    
         #endregion
     }
 }

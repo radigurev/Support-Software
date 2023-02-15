@@ -15,11 +15,16 @@ namespace DBTest3.Pages.Custom
         public string Token { get; set; }
         [CascadingParameter] private Task<AuthenticationState> authenticationStateTask { get; set; }
 
+        [Inject]
+        NavigationManager navigationManager { get; set; }
+
         private TicketsVM Ticket;
 
         private string msg;
 
         private string role;
+
+        private bool IsValidator = false;
 
         [Inject]
         ITicketService TicketService { get; set; }
@@ -38,6 +43,11 @@ namespace DBTest3.Pages.Custom
                 var CurrentUser = await this.applicationUserService.getUserByEmail(user.Identity.Name);
 
                 role = await this.applicationUserService.getUserRole(CurrentUser);
+
+                if(role.Equals("Validator"))
+                {
+                    IsValidator = true;
+                }
 
                 if (Token.ToLower().Equals("new"))
                 {
@@ -73,6 +83,18 @@ namespace DBTest3.Pages.Custom
                     msg = "Моля изчакайте вашият билет да бъде проверен!";
                 }
             }catch(Exception ex) { }
+        }
+
+        private async Task Accept()
+        {
+            TicketService.changeTicketSatus(Ticket, "ToDoStatus");
+            navigationManager.NavigateTo("/MainPage");
+        }
+
+        private async Task Denied()
+        {
+            TicketService.deleteTicket(Ticket);
+            navigationManager.NavigateTo("/MainPage");
         }
     }
 }
