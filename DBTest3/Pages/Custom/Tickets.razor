@@ -1,6 +1,6 @@
 ﻿@page "/Tickets/{token}"
 
-@if (Ticket.Id != 0 && Ticket.StatusId != 0)
+@if (Ticket.Id != 0 && Ticket.StatusId != null)
 {
     <div class="page-content page-container" id="page-content">
         <div class="padding">
@@ -116,9 +116,19 @@ else
                     <label>Опсиание на проблем:</label>
                     <InputTextArea @bind-Value="Ticket.Problem" class="form-control" />
                 </div>
-                <div class="col-lg-12 mt-2">
-                    <button type="submit" class="btnp">Запази</button>
-                </div>
+                @if (role.Equals("Validator"))
+                {
+                    <div class="col-lg-12 mt-2">
+                        <button type="button" class="btnp">Приеми</button>
+                        <button type="button" class="btnp btnr">Откажи</button>
+                    </div>
+                }
+                else
+                {
+                    <div class="col-lg-12 mt-2">
+                        <button type="submit" class="btnp">Запази</button>
+                    </div>
+                }
             </div>   
         </div>
     </EditForm>

@@ -17,6 +17,7 @@ namespace DBTest3.Service
         private readonly ApplicationDbContext applicationDbContext;
         private readonly IApplicationRoleService applicationRoleService;
         private readonly IMailService mailService;
+
         public ApplicationUserService(UserManager<User> userManager, ApplicationDbContext applicationDbContext, IMailService mailService, IApplicationRoleService applicationRoleService)
         {
             this.userManager = userManager;

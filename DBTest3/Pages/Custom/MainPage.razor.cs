@@ -43,6 +43,9 @@ namespace DBTest3.Pages.Custom
                 ProgressTickets = ticketService.getTicketsByStatusAdmin(ticketService.getTicketStatus("InProgressStatus"), CurrentUser);
                 WaitingTickets = ticketService.getTicketsByStatusAdmin(ticketService.getTicketStatus("WaitingAnswerStatus"), CurrentUser);
                 ClosedTickets = ticketService.getTicketsByStatusAdmin(ticketService.getTicketStatus("ClosedStatus"), CurrentUser);
+            }else if(role == "Validator")
+            {
+                ToDoTickets = ticketService.getTicketsByStatusAdmin(null);
             }
             else
             {

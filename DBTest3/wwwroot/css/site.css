@@ -23,6 +23,15 @@ a, .btn-link {
     color: #fff;
     text-decoration: none;
 }
+
+.btnr {
+    background-color: #FD4444 !important;
+}
+
+.btnr:hover {
+    background-color: #FF7B7B !important;
+}
+
 .tar {
     text-align: right;
 }

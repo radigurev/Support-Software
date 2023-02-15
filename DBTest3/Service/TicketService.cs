@@ -16,17 +16,28 @@ namespace DBTest3.Service
             this.applicationDbContext = applicationDbContext;
         }
 
+        public TicketsVM getTicketById(int id)
+        {
+            return this.applicationDbContext.tickets.Where(x => x.Id == id).First().To<TicketsVM>();
+        }
+
         #region Ticket
         public List<TicketsVM> getTicketsByStatusAdmin(TicketStatusVM status, UserVM user = null)
         {
             List<TicketsVM> ticketList;
 
             //Взимане на лист с даден статус и ако имаме подаден user(Админ) взимаме конкретните билети свъзрани с него
-            if (user == null)
-               ticketList  = applicationDbContext.tickets.Where(x => x.StatusId == status.Id).To<TicketsVM>().ToList();
+            if (status != null)
+            {
+                if (user == null)
+                    ticketList = applicationDbContext.tickets.Where(x => x.StatusId == status.Id).To<TicketsVM>().ToList();
+                else
+                    ticketList = applicationDbContext.tickets.Where(x => x.StatusId == status.Id && x.WorkerId == user.Id).To<TicketsVM>().ToList();
+            }
             else
-                ticketList = applicationDbContext.tickets.Where(x => x.StatusId == status.Id && x.WorkerId == user.Id).To<TicketsVM>().ToList();
-
+            {
+                ticketList = applicationDbContext.tickets.Where(x => x.StatusId == null).To<TicketsVM>().ToList();
+            }
             return ticketList;
         }
 
@@ -94,8 +105,6 @@ namespace DBTest3.Service
 
         public TicketsVM saveTicket(TicketsVM ticketVM)
         {
-
-
             var ticket = ticketVM.To<Tickets>();
 
             this.applicationDbContext.Add(ticket);

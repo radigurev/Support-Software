@@ -19,6 +19,8 @@ namespace DBTest3.Pages.Custom
 
         private string msg;
 
+        private string role;
+
         [Inject]
         ITicketService TicketService { get; set; }
         [Inject]
@@ -27,16 +29,23 @@ namespace DBTest3.Pages.Custom
         protected override async Task OnInitializedAsync()
         {
             msg = string.Empty;
+            role = string.Empty;
             if (!string.IsNullOrEmpty(Token))
             {
+                var authState = await authenticationStateTask;
+                var user = authState.User;
+
+                var CurrentUser = await this.applicationUserService.getUserByEmail(user.Identity.Name);
+
+                role = await this.applicationUserService.getUserRole(CurrentUser);
+
                 if (Token.ToLower().Equals("new"))
                 {
-                    var authState = await authenticationStateTask;
-                    var user = authState.User;
-
-                    var CurrentUser = await this.applicationUserService.getUserByEmail(user.Identity.Name);
                     Ticket = new TicketsVM();
                     Ticket.ClientId = CurrentUser.Id;
+                }else
+                {
+                    Ticket = this.TicketService.getTicketById(int.Parse(Token));
                 }
             }else
             {
