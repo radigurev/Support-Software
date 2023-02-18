@@ -13,12 +13,18 @@ namespace DBTest3.Data.ViewModels
         [StringLength(5000)]
         public string Message { get; set; }
 
+        public DateTime date { get; set; }
+
+        [Required]
+        [ForeignKey(nameof(User))]
+        public string UserId { get; set; }
+        public User User { get; set; }
+
         [Required]
         [ForeignKey(nameof(Ticket))]
         public long TicketID { get; set; }
         public TicketsVM Ticket { get; set; }
 
-        public virtual ICollection<ChatVM> Chats { get; set; }
     }
 }
 

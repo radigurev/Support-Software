@@ -29,6 +29,12 @@ namespace DBTest3.Data
                 .WithMany(x => x.Tickets)
                 .OnDelete(DeleteBehavior.NoAction)
                 .IsRequired(false);
+
+            builder.Entity<Chat>()
+                .HasOne(x => x.User)
+                .WithMany(x => x.Chats)
+                .OnDelete(DeleteBehavior.NoAction)
+                .IsRequired(false);
         }
 
         public DbSet<User> users { get; set; }

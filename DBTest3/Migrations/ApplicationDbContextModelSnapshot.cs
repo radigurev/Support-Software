@@ -38,9 +38,18 @@ namespace DBTest3.Migrations
                     b.Property<long>("TicketID")
                         .HasColumnType("bigint");
 
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("date")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("Id");
 
                     b.HasIndex("TicketID");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("chats");
                 });
@@ -409,7 +418,14 @@ namespace DBTest3.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("DBTest3.Data.Entity.User", "User")
+                        .WithMany("Chats")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.NoAction);
+
                     b.Navigation("Ticket");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("DBTest3.Data.Entity.Projects", b =>
@@ -523,6 +539,8 @@ namespace DBTest3.Migrations
 
             modelBuilder.Entity("DBTest3.Data.Entity.User", b =>
                 {
+                    b.Navigation("Chats");
+
                     b.Navigation("Tickets");
                 });
 #pragma warning restore 612, 618

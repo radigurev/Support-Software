@@ -32,6 +32,9 @@ namespace DBTest3.Service
             var company = new CompanyVM()
             {
                 name = name,
+                EIK = "1234567890",
+                ManagerName = "Lidiya Vicheva",
+                address = "Rayko Aleksiev 28"
             };
             var c = company.To<Companies>();
             applicationDbContext.companies.Add(c);

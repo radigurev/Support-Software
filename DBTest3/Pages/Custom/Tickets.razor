@@ -2,6 +2,25 @@
 
 @if (Ticket.Id != 0 && Ticket.StatusId != null)
 {
+    @if (role.Equals("Admin"))
+    {
+        @if (string.IsNullOrEmpty(Ticket.WorkerId))
+        {
+            <button type="button" @onclick="TakeTicket" class="btnp">Приеми</button>
+        }
+        else
+        {
+           @if(Ticket.StatusId != closed.Id)
+           {
+                <div class="col-lg-12 mt-2">
+                    <button type="button" @onclick="(() => ChangeStatus(InProgressStatus))" class="btnp">В прогрес</button>
+                    <button type="button" @onclick="(() => ChangeStatus(WaitingAnswerStatus))" class="btnp">Ичакване на отговор</button>
+                    <button type="button" @onclick="(() => ChangeStatus(ClosedStatus))" class="btnp btnr">Затвори билет</button>
+                </div>
+           }
+        }
+    }
+    <br />
     <div class="page-content page-container" id="page-content">
         <div>
             <div class="row d-flex">
@@ -10,37 +29,45 @@
                         <div class="card-header">
                             <h4 class="card-title"><strong>Chat</strong></h4>
                         </div>
-
-
                         <div class="ps-container ps-theme-default ps-active-y" id="chat-content" style="overflow-y: scroll !important; height:80vh !important;">
-                            <div class="media media-chat">
-                                <div class="media-body">
-                                    <p>Hi</p>
-                                    <p>How are you ...???</p>
-                                    <p>What are you doing tomorrow?<br> Can we come up a bar?</p>
-                                    <p class="meta"><time datetime="2018">23:58</time></p>
-                                </div>
-                            </div>
 
-                            <div class="media media-chat media-chat-reverse">
-                                <div class="media-body media-body-reverse">
-                                    <p>Hiii, I'm good.</p>
-                                    <p>How are you doing?</p>
-                                    <p>Long time no see! Tomorrow office. will be free on sunday.</p>
-                                    <p class="meta"><time datetime="2018">00:06</time></p>
-                                </div>
-                            </div>
-
- 
-
+                            @foreach (var chat in Ticket.Chats)
+                            {
+                                if (CurrentUser.Id == chat.UserId)
+                                {
+                                    <div class="media media-chat media-chat-reverse">
+                                        <div class="media-body media-body-reverse">
+                                            <p>@chat.Message</p>
+                                            <p class="meta"></p>
+                                        </div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="media media-chat">
+                                        <div class="media-body">
+                                            <p>@chat.Message</p>
+                                            <p class="meta"></p>
+                                        </div>
+                                    </div>
+                                }
+                            }
                             <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; height: 0px; right: 2px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 2px;"></div></div>
                         </div>
 
-                        <div class="publisher bt-1 border-light">
-                            <input class="publisher-input" type="text" placeholder="Текст...">
+                        <EditForm EditContext="editContext" OnSubmit="SaveChat">
+                            <div class="publisher bt-1 border-light">
+                                @if(Ticket.StatusId == closed.Id)
+                                {
+                                    <InputText disabled="true" class="publisher-input" @bind-Value="chat.Message" placeholder="Текст..." />
+                                }else{
+                                    <InputText class="publisher-input" @bind-Value="chat.Message" placeholder="Текст..." />
 
-                            <a class="publisher-btn text-info" href="#" data-abc="true"><i class="fa fa-paper-plane"></i></a>
-                        </div>
+                                }
+                                <button type="submit" class="publisher-btn text-info" href="#" data-abc="true"><i class="fa fa-paper-plane"></i></button>
+                            </div>
+                        </EditForm>
+
 
                     </div>
                 </div>
@@ -75,7 +102,7 @@ else
                         <button type="submit" class="btnp">Запази</button>
                     </div>
                 }
-            </div>   
+            </div>
         </div>
     </EditForm>
 

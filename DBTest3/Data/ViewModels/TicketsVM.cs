@@ -25,6 +25,9 @@ namespace DBTest3.Data.ViewModels
 
         [ForeignKey(nameof(Status))]
         public long? StatusId { get; set; }
-        public TicketStatus Status { get; set; }
+        public TicketStatusVM Status { get; set; }
+
+        public virtual ICollection<ChatVM> Chats { get; set; }
+
     }
 }

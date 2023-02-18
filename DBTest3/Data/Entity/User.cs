@@ -17,5 +17,7 @@ namespace DBTest3.Data.Entity
         public Companies? Company { get; set; }
 
         public ICollection<Tickets> Tickets { get; set; }
+
+        public virtual ICollection<Chat> Chats { get; set; }
     }
 }

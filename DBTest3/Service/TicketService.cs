@@ -19,7 +19,7 @@ namespace DBTest3.Service
 
         public TicketsVM getTicketById(int id)
         {
-            return this.applicationDbContext.tickets.Where(x => x.Id == id).First().To<TicketsVM>();
+            return this.applicationDbContext.tickets.Where(x => x.Id == id).Include(x => x.Chats).AsNoTracking().First().To<TicketsVM>();
         }
 
         #region Ticket
@@ -65,15 +65,18 @@ namespace DBTest3.Service
             return ticket.To<TicketsVM>();
         }
 
-        public void changeTicketSatus(TicketsVM ticketVM, string status)
+        public async Task changeTicketSatus(TicketsVM ticketVM, string status)
         {
-            this.applicationDbContext.ChangeTracker.Clear();
             var ticket = ticketVM.To<Tickets>();
+
+            ticket.Chats = null;
 
             ticket.StatusId = getTicketStatus(status).Id;
 
             this.applicationDbContext.Update(ticket);
             this.applicationDbContext.SaveChanges();
+            this.applicationDbContext.ChangeTracker.Clear();
+
         }
         public void deleteTicket(TicketsVM ticket)
         {
@@ -81,6 +84,27 @@ namespace DBTest3.Service
 
             this.applicationDbContext.Remove(ticket.To<Tickets>());
             this.applicationDbContext.SaveChanges();
+        }
+
+        public void saveChatToTicket(ChatVM chatVM)
+        {
+            var chat = chatVM.To<Chat>();
+            chat.date = DateTime.Now;
+            this.applicationDbContext.Add(chat);
+            this.applicationDbContext.SaveChanges();
+        }
+        public TicketsVM updateTicket(TicketsVM ticketVM)
+        {
+            this.applicationDbContext.ChangeTracker.Clear();
+
+            var ticket = ticketVM.To<Tickets>();
+
+            ticket.Chats = null;
+
+            this.applicationDbContext.Update(ticket);
+            this.applicationDbContext.SaveChanges();
+
+            return getTicketById((int) ticket.Id);
         }
         #endregion
 
@@ -132,7 +156,6 @@ namespace DBTest3.Service
             }
         }
 
-    
         #endregion
     }
 }

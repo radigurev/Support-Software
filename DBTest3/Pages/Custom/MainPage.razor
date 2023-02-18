@@ -31,8 +31,9 @@
                 <div class="main">
                     @foreach (var ToDo in ToDoTickets)
                     {
-                        <a href="/Tickets/@ToDo.Id" class="">
-                            <div class="pt-2">
+
+                        <div class="pt-2">
+                            <a href="/Tickets/@ToDo.Id" class="">
                                 <div class="two">
                                     <div class="d-flex justify-content-end px-3 pt-1"><i class="mdi mdi-star-outline pr-1 star"></i><i class="mdi mdi-dots-horizontal dot"></i></div>
                                     <div class="px-3"><div class="round"><i class="fa-solid fa-play imgfix"></i></div></div>
@@ -53,8 +54,9 @@
                                     </div>
 
                                 </div>
-                            </div>
-                        </a>
+                            </a>
+                        </div>
+
                     }
                 </div>
             }
@@ -81,11 +83,11 @@
                 <div class="main">
                     @foreach (var progress in ProgressTickets)
                     {
-                        <a href="/Tickets/@progress.Id" class="">
-                            <div class="pt-2">
+                        <div class="pt-2">
+                            <a href="/Tickets/@progress.Id" class="">
                                 <div class="two">
                                     <div class="d-flex justify-content-end px-3 pt-1"><i class="mdi mdi-star-outline pr-1 star"></i><i class="mdi mdi-dots-horizontal dot"></i></div>
-                                    <div class="px-3"><div class="round"><i class="fa-solid fa-play imgfix"></i></div></div>
+                                    <div class="px-3"><div class="round"><i class="fa-solid fa-spinner imgfix"></i></div></div>
                                     <div class="px-3 pt-3">
                                         <h3 class="name">@progress.Title</h3>
                                         <p class="quote2">@progress.Problem</p>
@@ -103,8 +105,9 @@
                                     </div>
 
                                 </div>
-                            </div>
-                        </a>
+                            </a>
+
+                        </div>
                     }
                 </div>
             }
@@ -131,11 +134,12 @@
                 <div class="main">
                     @foreach (var waiting in WaitingTickets)
                     {
-                        <a href="/Tickets/@waiting.Id" class="">
-                            <div class="pt-2">
+                        <div class="pt-2">
+                            <a href="/Tickets/@waiting.Id" class="">
+
                                 <div class="two">
                                     <div class="d-flex justify-content-end px-3 pt-1"><i class="mdi mdi-star-outline pr-1 star"></i><i class="mdi mdi-dots-horizontal dot"></i></div>
-                                    <div class="px-3"><div class="round"><i class="fa-solid fa-play imgfix"></i></div></div>
+                                    <div class="px-3"><div class="round"><i class="fa-solid fa-clock imgfix"></i></div></div>
                                     <div class="px-3 pt-3">
                                         <h3 class="name">@waiting.Title</h3>
                                         <p class="quote2">@waiting.Problem</p>
@@ -153,8 +157,9 @@
                                     </div>
 
                                 </div>
-                            </div>
-                        </a>
+                            </a>
+
+                        </div>
                     }
                 </div>
             }
@@ -180,11 +185,12 @@
                 <div class="main">
                     @foreach (var closed in ClosedTickets)
                     {
-                        <a href="/Tickets/@closed.Id" class="">
-                            <div class="pt-2">
+                        <div class="pt-2">
+                            <a href="/Tickets/@closed.Id" class="">
+
                                 <div class="two">
                                     <div class="d-flex justify-content-end px-3 pt-1"><i class="mdi mdi-star-outline pr-1 star"></i><i class="mdi mdi-dots-horizontal dot"></i></div>
-                                    <div class="px-3"><div class="round"><i class="fa-solid fa-play imgfix"></i></div></div>
+                                    <div class="px-3"><div class="round"><i class="fa-solid fa-check imgfix"></i></div></div>
                                     <div class="px-3 pt-3">
                                         <h3 class="name">@closed.Title</h3>
                                         <p class="quote2">@closed.Problem</p>
@@ -202,8 +208,9 @@
                                     </div>
 
                                 </div>
-                            </div>
-                        </a>
+                            </a>
+
+                        </div>
                     }
                 </div>
             }
@@ -231,8 +238,9 @@
                 <div class="main">
                     @foreach (var ToDo in ToDoTickets)
                     {
-                        <a class="" href="/Tickets/@ToDo.Id">
-                            <div class="pt-2">
+                        <div class="pt-2">
+                            <a class="" href="/Tickets/@ToDo.Id">
+
                                 <div class="two">
                                     <div class="d-flex justify-content-end px-3 pt-1"><i class="mdi mdi-star-outline pr-1 star"></i><i class="mdi mdi-dots-horizontal dot"></i></div>
                                     <div class="px-3"><div class="round"><i class="fa-solid fa-question imgfix"></i></div></div>
@@ -253,12 +261,13 @@
                                     </div>
 
                                 </div>
-                            </div>
-                        </a>
+                            </a>
+
+                        </div>
                     }
                 </div>
-                }
             }
+        }
     </Authorized>
     <NotAuthorized>
         <UnAuthorizedUser />
