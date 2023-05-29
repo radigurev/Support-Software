@@ -49,6 +49,7 @@ namespace DBTest3.Pages.Custom
             }
             else
             {
+
                 ToDoTickets = ticketService.getTicketsByStatusUser(ticketService.getTicketStatus("ToDoStatus"));
                 ProgressTickets = ticketService.getTicketsByStatusUser(ticketService.getTicketStatus("InProgressStatus"), CurrentUser);
                 WaitingTickets = ticketService.getTicketsByStatusUser(ticketService.getTicketStatus("WaitingAnswerStatus"), CurrentUser);

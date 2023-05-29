@@ -13,7 +13,6 @@ namespace DBTest3.Data.ViewModels
         [Required(ErrorMessage = "Полето Email е задължително!")]
         public override string Email { get => base.Email; set => base.Email = value; }
 
-        public bool IsClient { get; set; }
         [Required(ErrorMessage = "Полето Име е задължително!")]
         public string FirstName { get; set; }
         [Required(ErrorMessage = "Полето Фамилия е задължително!")]

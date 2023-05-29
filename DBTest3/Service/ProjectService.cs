@@ -52,7 +52,7 @@ namespace DBTest3.Service
         public ProjectsVM UpdateProject(ProjectsVM project)
         {
             this.applicationDbContext.ChangeTracker.Clear();
-
+            project.Company = null;
             this.applicationDbContext.Update(project.To<Projects>());
 
             this.applicationDbContext.SaveChanges();

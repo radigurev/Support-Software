@@ -19,7 +19,10 @@ namespace DBTest3.Service
 
         public TicketsVM getTicketById(int id)
         {
-            return this.applicationDbContext.tickets.Where(x => x.Id == id).Include(x => x.Chats).AsNoTracking().First().To<TicketsVM>();
+            var ticket = this.applicationDbContext.tickets.Where(x => x.Id == id).Include(x => x.Chats).AsNoTracking().First().To<TicketsVM>();
+            this.applicationDbContext.ChangeTracker.Clear();
+
+            return ticket;
         }
 
         #region Ticket

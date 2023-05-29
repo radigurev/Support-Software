@@ -7,6 +7,7 @@
             <li class="validation-message">@msg</li>
         }
     </ul>
+    <p>@message</p>
     <div class="d-flex justify-content-center flex-nowrap">
         <div class="row">
             <div class="col-6 mt-2">
@@ -14,21 +15,21 @@
                 <InputText @bind-Value="project.name" class="form-control" />
             </div>
             <div class="col-6 mt-2">
-                <label>Адрес:</label>
+                <label>Вид:</label>
                 <InputText @bind-Value="project.Type" class="form-control" />
             </div>
             <div class="col-6 mt-2">
-                <label>ЕИК:</label>
+                <label>Номер за връзка:</label>
                 <InputText @bind-Value="project.NumberForContact" class="form-control" />
             </div>
             <div class="col-6 mt-2">
-                <label>Мениджър(Име):</label>
+                <label>Изпълнително лице(Име):</label>
                 <InputText @bind-Value="project.ProjectLeaderName" class="form-control" />
             </div>
             @if (project.Id != 0)
             {
                 <div class="col-6 mt-2">
-                    <label>Мениджър(Име):</label>
+                    <label>Фирма:</label>
                     <InputText disabled="true" @bind-Value="project.Company.name" class="form-control" />
                 </div>
             }

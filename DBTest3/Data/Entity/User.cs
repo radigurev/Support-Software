@@ -7,8 +7,6 @@ namespace DBTest3.Data.Entity
     {
         public string? EGN { get; set; }
 
-        public bool IsClient { get; set; }
-
         public string FirstName { get; set; }
         public string LastName { get; set; }  
 

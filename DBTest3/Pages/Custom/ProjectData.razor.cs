@@ -14,6 +14,8 @@ namespace DBTest3.Pages.Custom
 
         List<string> errorMessages = new List<string>();
 
+        private string message = "";
+
         [Parameter]
         public string Token { get; set; }
 
@@ -40,6 +42,7 @@ namespace DBTest3.Pages.Custom
 
         private void Submit()
         {
+            message = "";
             try
             {
                 var validate = editContext.Validate();
@@ -51,6 +54,8 @@ namespace DBTest3.Pages.Custom
                     }
                     else
                         project = projectService.CreateProject(project);
+
+                    message = "Записът е успешен!";
                 }else
                 {
                     errorMessages.AddRange(editContext.GetValidationMessages());
